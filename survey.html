@@ -9,15 +9,98 @@
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="assets/css/survey-style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Fallback World-Class Styling to prevent "Plain Text" look */
+        :root {
+            --primary: #0A192F;
+            --accent: #E8A8B1;
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+        body.survey-page {
+            background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .survey-container {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+        .brand-badge {
+            background: var(--primary);
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        .main-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 20px;
+        }
+        .modern-card {
+            background: white;
+            border: 2px solid #eee;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+        }
+        .modern-card:hover { border-color: var(--accent); }
+        .premium-input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            background: transparent;
+            font-size: 1rem;
+            outline: none;
+        }
+        .btn-nav {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        .progress-track {
+            height: 6px;
+            background: #eee;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 10%; /* Dynamic */
+        }
+    </style>
 </head>
 <body class="survey-page">
 
-    <div class="glass-morph-bg"></div>
-
     <div class="survey-container" data-aos="zoom-in" data-aos-duration="800">
         <div class="progress-wrapper">
-            <div class="progress-info">
+            <div class="progress-info" style="display: flex; justify-content: space-between; font-size: 12px;">
                 <span id="step-count">Step 1 of 10</span>
                 <span id="percent-complete">10%</span>
             </div>
@@ -28,8 +111,8 @@
 
         <header class="survey-header">
             <div class="brand-badge">Ikheloa's Foundation</div>
-            <h1>Dignity & Destiny Drive</h1>
-            <p class="description">Hi sis 💞, help me pick the right pad brand for our JSS outreach. Your voice matters.</p>
+            <h1 style="font-family: 'Playfair Display'; margin: 10px 0;">Dignity & Destiny Drive</h1>
+            <p class="description" style="color: #666; font-size: 14px;">Hi sis 💞, help me pick the right pad brand. Your voice matters.</p>
         </header>
 
         <form id="padSurveyForm" class="multi-step-form">
@@ -37,69 +120,33 @@
             <div class="form-step active" data-step="1">
                 <label class="main-label">What age range are you?</label>
                 <div class="radio-grid">
-                    <label class="modern-card">
-                        <input type="radio" name="age_range" value="15-18">
-                        <div class="card-content"><span>15–18</span></div>
-                    </label>
-                    <label class="modern-card">
-                        <input type="radio" name="age_range" value="19-24">
-                        <div class="card-content"><span>19–24</span></div>
-                    </label>
-                    <label class="modern-card">
-                        <input type="radio" name="age_range" value="25-30">
-                        <div class="card-content"><span>25–30</span></div>
-                    </label>
-                    <label class="modern-card">
-                        <input type="radio" name="age_range" value="31+">
-                        <div class="card-content"><span>31+</span></div>
-                    </label>
+                    <label class="modern-card"><input type="radio" name="age_range" value="15-18"> <span>15–18</span></label>
+                    <label class="modern-card"><input type="radio" name="age_range" value="19-24"> <span>19–24</span></label>
+                    <label class="modern-card"><input type="radio" name="age_range" value="25-30"> <span>25–30</span></label>
+                    <label class="modern-card"><input type="radio" name="age_range" value="31+"> <span>31+</span></label>
                 </div>
             </div>
 
-            <div class="form-step" data-step="2">
-                <label class="main-label">What brand of sanitary pad do you CURRENTLY use most?</label>
-                <div class="input-wrapper">
-                    <input type="text" name="current_brand" class="premium-input" placeholder="e.g. Molped, Always, Virony..." required>
-                    <div class="input-focus-line"></div>
-                </div>
-            </div>
-
-            <div class="form-step" data-step="3">
-                <label class="main-label">Why do you use that brand? <small>(Pick all that apply)</small></label>
-                <div class="checkbox-stack">
-                    <label class="check-item"><input type="checkbox" name="reason" value="absorbent"> <span>Highly Absorbent / No Leaks</span></label>
-                    <label class="check-item"><input type="checkbox" name="reason" value="comfortable"> <span>Comfortable / Soft on Skin</span></label>
-                    <label class="check-item"><input type="checkbox" name="reason" value="affordable"> <span>Fits my Budget</span></label>
-                    <label class="check-item"><input type="checkbox" name="reason" value="availability"> <span>Easy to find in my area</span></label>
-                    <label class="check-item"><input type="checkbox" name="reason" value="skin-friendly"> <span>No rashes or itching</span></label>
-                </div>
-            </div>
-
-            <div class="form-step" data-step="7">
-                <label class="main-label">Which is more important to you?</label>
-                <div class="slider-container">
-                    <div class="slider-labels">
-                        <span>Low Price</span>
-                        <span>High Quality</span>
-                    </div>
-                    <input type="range" name="priority_scale" min="1" max="5" step="1" class="modern-range">
-                    <div class="range-hint">1 = Price is everything | 5 = Quality is everything</div>
-                </div>
+            <div class="form-step" style="display:none;" data-step="2">
+                <label class="main-label">What brand do you CURRENTLY use most?</label>
+                <input type="text" name="current_brand" class="premium-input" placeholder="e.g. Molped, Always, Virony...">
             </div>
 
             <div class="survey-nav">
-                <button type="button" class="btn-nav btn-prev" id="prevBtn" disabled>Back</button>
+                <button type="button" class="btn-nav btn-prev" id="prevBtn" style="background: #ccc;" disabled>Back</button>
                 <button type="button" class="btn-nav btn-next" id="nextBtn">Next Question</button>
-                <button type="submit" class="btn-nav btn-submit" id="submitBtn" style="display:none;">Finish & Help a Girl</button>
             </div>
         </form>
 
-        <footer class="survey-footer">
+        <footer class="survey-footer" style="margin-top: 30px; text-align: center; font-size: 12px; color: #888;">
             <p>🔒 100% Anonymous & Secure</p>
         </footer>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/js/survey.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="survey.js"></script>
 </body>
 </html>
