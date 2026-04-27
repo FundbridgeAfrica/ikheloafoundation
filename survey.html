@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dignity & Destiny Survey | Ikheloa's Foundation</title>
+    <title>Ikheloa's Foundation | Pad Brand Survey</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Fallback World-Class Styling to prevent "Plain Text" look */
         :root {
             --primary: #0A192F;
             --accent: #E8A8B1;
-            --glass: rgba(255, 255, 255, 0.9);
+            --glass: rgba(255, 255, 255, 0.95);
         }
         body.survey-page {
             background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
@@ -46,7 +43,7 @@
             margin-bottom: 15px;
         }
         .main-label {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--primary);
             display: block;
@@ -55,15 +52,17 @@
         .modern-card {
             background: white;
             border: 2px solid #eee;
-            padding: 15px;
+            padding: 12px 20px;
             border-radius: 15px;
             margin-bottom: 10px;
             cursor: pointer;
             transition: 0.3s;
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .modern-card:hover { border-color: var(--accent); }
-        .premium-input {
+        .modern-card:hover { border-color: var(--accent); background: #fff9fa; }
+        .premium-input, .premium-textarea {
             width: 100%;
             padding: 15px;
             border: none;
@@ -71,7 +70,9 @@
             background: transparent;
             font-size: 1rem;
             outline: none;
+            font-family: inherit;
         }
+        .premium-textarea { border: 2px solid #eee; border-radius: 15px; min-height: 100px; }
         .btn-nav {
             background: var(--primary);
             color: white;
@@ -80,8 +81,9 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            margin-top: 20px;
+            transition: 0.3s;
         }
+        .btn-nav:hover { opacity: 0.9; transform: translateY(-2px); }
         .progress-track {
             height: 6px;
             background: #eee;
@@ -92,16 +94,21 @@
         .progress-fill {
             height: 100%;
             background: var(--accent);
-            width: 10%; /* Dynamic */
+            width: 10%; /* Starts at 10% */
+            transition: width 0.5s ease;
         }
+        .form-step { display: none; animation: fadeIn 0.5s ease; }
+        .form-step.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .mt-20 { margin-top: 20px; }
     </style>
 </head>
 <body class="survey-page">
 
     <div class="survey-container" data-aos="zoom-in" data-aos-duration="800">
         <div class="progress-wrapper">
-            <div class="progress-info" style="display: flex; justify-content: space-between; font-size: 12px;">
-                <span id="step-count">Step 1 of 10</span>
+            <div class="progress-info" style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600;">
+                <span id="step-count">Question 1 of 10</span>
                 <span id="percent-complete">10%</span>
             </div>
             <div class="progress-track">
@@ -111,14 +118,14 @@
 
         <header class="survey-header">
             <div class="brand-badge">Ikheloa's Foundation</div>
-            <h1 style="font-family: 'Playfair Display'; margin: 10px 0;">Dignity & Destiny Drive</h1>
-            <p class="description" style="color: #666; font-size: 14px;">Hi sis 💞, help me pick the right pad brand. Your voice matters.</p>
+            <h1 style="font-family: 'Playfair Display'; margin: 10px 0; font-size: 1.8rem;">Menstrual Hygiene Outreach</h1>
+            <p class="description" style="color: #666; font-size: 14px; line-height: 1.5;">Hi sis 💞, help me pick the right pad brand for our outreach to JSS girls. Your answers = dignity. Thank you!</p>
         </header>
 
-        <form id="padSurveyForm" class="multi-step-form">
+        <form id="padSurveyForm" class="multi-step-form mt-20">
             
             <div class="form-step active" data-step="1">
-                <label class="main-label">What age range are you?</label>
+                <label class="main-label">1. What age range are you?</label>
                 <div class="radio-grid">
                     <label class="modern-card"><input type="radio" name="age_range" value="15-18"> <span>15–18</span></label>
                     <label class="modern-card"><input type="radio" name="age_range" value="19-24"> <span>19–24</span></label>
@@ -127,19 +134,91 @@
                 </div>
             </div>
 
-            <div class="form-step" style="display:none;" data-step="2">
-                <label class="main-label">What brand do you CURRENTLY use most?</label>
-                <input type="text" name="current_brand" class="premium-input" placeholder="e.g. Molped, Always, Virony...">
+            <div class="form-step" data-step="2">
+                <label class="main-label">2. What brand of sanitary pad do you CURRENTLY use most?</label>
+                <input type="text" name="current_brand" class="premium-input" placeholder="Example: Molped, Always, Virony, Lily...">
             </div>
 
-            <div class="survey-nav">
+            <div class="form-step" data-step="3">
+                <label class="main-label">3. Why do you use that brand? (Pick all that apply)</label>
+                <div class="checkbox-grid">
+                    <label class="modern-card"><input type="checkbox" name="reasons" value="absorbent"> <span>Very absorbent / No leaks</span></label>
+                    <label class="modern-card"><input type="checkbox" name="reasons" value="comfortable"> <span>Comfortable / Soft on skin</span></label>
+                    <label class="modern-card"><input type="checkbox" name="reasons" value="affordable"> <span>Affordable / Fits budget</span></label>
+                    <label class="modern-card"><input type="checkbox" name="reasons" value="available"> <span>Easy to find in my area</span></label>
+                    <label class="modern-card"><input type="checkbox" name="reasons" value="skin-safe"> <span>Doesn't give rashes/itching</span></label>
+                    <label class="modern-card"><input type="checkbox" name="reasons" value="trust"> <span>I trust the brand</span></label>
+                </div>
+                <input type="text" name="other_reasons" class="premium-input mt-20" placeholder="Other: type in your reasons here">
+            </div>
+
+            <div class="form-step" data-step="4">
+                <label class="main-label">4. How many hours does ONE pad usually last you on a heavy flow day?</label>
+                <div class="radio-grid">
+                    <label class="modern-card"><input type="radio" name="flow_duration" value="2-3"> <span>2–3 hours</span></label>
+                    <label class="modern-card"><input type="radio" name="flow_duration" value="4"> <span>4 hours</span></label>
+                    <label class="modern-card"><input type="radio" name="flow_duration" value="6"> <span>6 hours</span></label>
+                    <label class="modern-card"><input type="radio" name="flow_duration" value="8+"> <span>8+ hours</span></label>
+                    <label class="modern-card"><input type="radio" name="flow_duration" value="none"> <span>I don’t track</span></label>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="5">
+                <label class="main-label">5. Have you switched to a cheaper brand in the last 2 years because of price?</label>
+                <div class="radio-grid">
+                    <label class="modern-card"><input type="radio" name="has_switched" value="yes"> <span>Yes, because of the economy</span></label>
+                    <label class="modern-card"><input type="radio" name="has_switched" value="no"> <span>No, still use same brand</span></label>
+                    <label class="modern-card"><input type="radio" name="has_switched" value="available"> <span>I switch based on availability</span></label>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="6">
+                <label class="main-label">6. If you switched, what brand did you use BEFORE and what do you use NOW?</label>
+                <input type="text" name="switch_details" class="premium-input" placeholder="Example: Before = Always, Now = Lily">
+                <p style="font-size: 11px; color: #888; margin-top: 5px;">Skip if you answered “No” above.</p>
+            </div>
+
+            <div class="form-step" data-step="7">
+                <label class="main-label">7. How important is "low price" vs "high quality"?</label>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px; font-weight: 600;">
+                    <span>Price (Cheapest)</span>
+                    <span>Quality (Premium)</span>
+                </div>
+                <input type="range" name="price_vs_quality" min="1" max="5" step="1" style="width: 100%; accent-color: var(--accent);">
+                <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 12px; color: #666;">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="8">
+                <label class="main-label">8. What’s ONE thing you HATE about your current pad?</label>
+                <input type="text" name="pad_hate" class="premium-input" placeholder="Example: Too thick, no wings, rashes...">
+            </div>
+
+            <div class="form-step" data-step="9">
+                <label class="main-label">9. If you were a JSS 3 girl again, what pad feature would matter MOST?</label>
+                <div class="radio-grid">
+                    <label class="modern-card"><input type="radio" name="jss_feature" value="thin"> <span>Very thin (no show under uniform)</span></label>
+                    <label class="modern-card"><input type="radio" name="jss_feature" value="absorbent"> <span>Very absorbent (no stains in class)</span></label>
+                    <label class="modern-card"><input type="radio" name="jss_feature" value="wings"> <span>Soft wings (no cuts on thighs)</span></label>
+                    <label class="modern-card"><input type="radio" name="jss_feature" value="price"> <span>Cheap monthly affordability</span></label>
+                    <label class="modern-card"><input type="radio" name="jss_feature" value="pack"> <span>Small packs (not bulky)</span></label>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="10">
+                <label class="main-label">10. Any pad brand you think I should AVOID for young girls? Why?</label>
+                <textarea name="avoid_brand" class="premium-textarea" placeholder="Be honest — this helps me protect them."></textarea>
+            </div>
+
+            <div class="survey-nav mt-20" style="display: flex; justify-content: space-between; align-items: center;">
                 <button type="button" class="btn-nav btn-prev" id="prevBtn" style="background: #ccc;" disabled>Back</button>
                 <button type="button" class="btn-nav btn-next" id="nextBtn">Next Question</button>
             </div>
         </form>
 
         <footer class="survey-footer" style="margin-top: 30px; text-align: center; font-size: 12px; color: #888;">
-            <p>🔒 100% Anonymous & Secure</p>
+            <p>🔒 All responses are anonymous • Ikheloa's Foundation</p>
         </footer>
     </div>
 
