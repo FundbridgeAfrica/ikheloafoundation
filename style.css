@@ -1,0 +1,245 @@
+/* 1. CSS VARIABLES - The Foundation of our 2026 Design */
+:root {
+    --primary-navy: #0A192F;
+    --accent-rose: #E8A8B1; /* Sophisticated pink, not childish */
+    --medical-blue: #0077B6;
+    --text-main: #2D3436;
+    --text-light: #636E72;
+    --bg-light: #F9FAFB;
+    --glass: rgba(255, 255, 255, 0.8);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* 3. NAVIGATION - Glassmorphism Header */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1rem 0;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    color: var(--primary-navy);
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    margin: 0 1.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.main-nav a:hover {
+    color: var(--accent-rose);
+}
+
+.btn-donate {
+    background: var(--primary-navy);
+    color: white !important;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* 4. HERO SECTION - Immersive Impact */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
+                url('../images/outreach_vulnerable.jpeg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--accent-rose);
+    color: white;
+    margin-right: 1rem;
+}
+
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+}
+
+/* 5. IMPACT DASHBOARD - Dynamic Numbers */
+.impact {
+    padding: 100px 0;
+    background: white;
+    margin-top: -50px;
+    border-radius: 50px 50px 0 0;
+    position: relative;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.impact-number {
+    font-size: 3rem;
+    color: var(--primary-navy);
+}
+
+.impact-label {
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* 6. FOUNDER SPOTLIGHT - The Nurse Philanthropist */
+.founder-spotlight {
+    padding: 100px 0;
+}
+
+.spotlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.spotlight-image-container {
+    position: relative;
+}
+
+.founder-image {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px var(--accent-rose);
+}
+
+.spotlight-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--primary-navy);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.founder-slang {
+    margin-top: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--medical-blue);
+    font-style: italic;
+    border-left: 4px solid var(--accent-rose);
+    padding-left: 1.5rem;
+}
+
+/* 7. PROGRAM CARDS - 2026 Hover Effects */
+.programs {
+    background: #f1f3f5;
+    padding: 100px 0;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.program-card {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.program-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.icon-placeholder {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 8. MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .main-nav { display: none; } /* We'll add a burger menu later */
+    .spotlight-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 3rem; }
+}
