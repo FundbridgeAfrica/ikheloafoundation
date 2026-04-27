@@ -8,54 +8,84 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <header class="main-header">
+    <div id="scroll-progress"></div>
+
+    <header class="main-header" data-aos="fade-down" data-aos-duration="1000">
         <div class="container nav-wrapper">
-            <a href="/" class="brand-logo">Ikheloa's Foundation</a>
+            <a href="/" class="brand-logo">Ikheloa's <span class="accent-text">Foundation</span></a>
+            
             <nav class="main-nav">
-                <a href="#about">About</a>
-                <a href="#impact">Impact</a>
-                <a href="#programs">Programs</a>
-                <a href="#outreach" class="nav-special">Outreach 2026</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#impact" class="nav-link">Impact</a>
+                <a href="#programs" class="nav-link">Programs</a>
+                <a href="survey.html" class="nav-link nav-special">Pad Brand Survey</a>
             </nav>
-            <a href="/donate" class="btn btn-donate">Donate</a>
+            
+            <div class="nav-actions">
+                <a href="/donate" class="btn btn-donate">Donate Now</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <section class="hero" id="home">
+        <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1 class="hero-title">Helping the Vulnerable</h1>
-            <p class="hero-tagline">Empowering the girl child through medical care, education, and mentorship. Led by Registered Nurse Ikheloa Omuekpen Promise.</p>
-            <div class="hero-cta">
-                <a href="/join" class="btn btn-primary">Join Our Cause</a>
-                <a href="#outreach" class="btn btn-secondary">Explore 2026 Outreach</a>
+            <span class="hero-pretitle" data-aos="fade-up" data-aos-delay="200">ESTABLISHED 2026</span>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">
+                Helping the <br><span class="vulnerable-text">Vulnerable</span>
+            </h1>
+            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="600">
+                Empowering the girl child through medical excellence and relentless mentorship. 
+                Directed by <strong>Nurse Ikheloa Omuekpen Promise</strong>.
+            </p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="800">
+                <a href="/join" class="btn btn-primary">Partner With Us</a>
+                <a href="#outreach" class="btn btn-secondary-outline">2026 Outreach Plan</a>
             </div>
         </div>
+        <div class="scroll-indicator"></div>
     </section>
 
     <section class="impact" id="impact">
         <div class="container">
             <div class="impact-grid">
-                <div class="impact-item">
-                    <h2 class="impact-number" id="lives-touched">0+</h2>
+                <div class="impact-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="impact-circle">
+                        <h2 class="impact-number" data-target="1500">0</h2>
+                        <span class="plus">+</span>
+                    </div>
                     <p class="impact-label">Girls Empowered</p>
                 </div>
-                <div class="impact-item">
-                    <h2 class="impact-number" id="outreach-count">1</h2>
-                    <p class="impact-label">Outreach Complete (2026)</p>
+                <div class="impact-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="impact-circle">
+                        <h2 class="impact-number" data-target="1">0</h2>
+                    </div>
+                    <p class="impact-label">Outreach 2026</p>
                 </div>
-                <div class="impact-item">
-                    <h2 class="impact-number" id="medical-aid">0</h2>
-                    <p class="impact-label">Medical Checkups Provided</p>
+                <div class="impact-item" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="impact-circle">
+                        <h2 class="impact-number" data-target="500">0</h2>
+                        <span class="plus">+</span>
+                    </div>
+                    <p class="impact-label">Medical Aids</p>
                 </div>
-                <div class="impact-item">
-                    <h2 class="impact-number" id="mentors">0+</h2>
-                    <p class="impact-label">Mentors Secured</p>
+                <div class="impact-item" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="impact-circle">
+                        <h2 class="impact-number" data-target="50">0</h2>
+                        <span class="plus">+</span>
+                    </div>
+                    <p class="impact-label">Global Mentors</p>
                 </div>
             </div>
         </div>
@@ -63,64 +93,78 @@
 
     <section class="founder-spotlight" id="about">
         <div class="container spotlight-grid">
-            <div class="spotlight-image-container">
-                <img src="assets/images/ikheloa_nurse.jpeg" alt="Nurse Ikheloa Omuekpen Promise" class="founder-image">
-                <span class="spotlight-badge">RN | Philanthropist</span>
+            <div class="spotlight-image-wrapper" data-aos="fade-right">
+                <div class="image-frame">
+                    <img src="assets/images/ikheloa_nurse.jpeg" alt="Nurse Ikheloa" class="founder-img">
+                </div>
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>RN</h3>
+                    <p>Registered Nurse</p>
+                </div>
             </div>
-            <div class="spotlight-text">
-                <span class="section-label">THE FOUNDER</span>
+            
+            <div class="spotlight-text" data-aos="fade-left">
+                <h4 class="section-subtitle">THE VISIONARY</h4>
                 <h2 class="spotlight-name">Ikheloa Omuekpen Promise</h2>
-                <p>As a Registered Nurse and dedicated Philanthropist, I have witnessed first-hand the profound need within our communities, specifically for the girl child. At Ikheloa’s Foundation, we transition from observing vulnerability to delivering solutions.</p>
-                <p>My medical background informs our structured approach: provide health, secure education, and foster resilience. It is not just about charity; it is about building sustainable systems of support.</p>
-                <blockquote class="founder-slang">"Helping the vulnerable isn't just my slang; it is my assignment."</blockquote>
+                <div class="divider"></div>
+                <p class="lead-text">
+                    As a healthcare professional, I don't just see patients; I see futures that need safeguarding. 
+                    At Ikheloa’s Foundation, we bridge the gap between vulnerability and opportunity.
+                </p>
+                <p>
+                    Our mission is clinical in its precision but human in its heart. We are starting 2026 with 
+                    a drive that targets the very core of girl-child dignity.
+                </p>
+                <blockquote class="founder-slang">
+                    "Helping the vulnerable isn't just my slang; it's my assignment."
+                </blockquote>
             </div>
         </div>
     </section>
 
     <section class="programs" id="programs">
         <div class="container">
-            <span class="section-label text-center">HOW WE WORK</span>
-            <h2 class="text-center section-title">Our Pillars of Intervention</h2>
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="section-subtitle">OUR PILLARS</h4>
+                <h2 class="section-title">Strategic Interventions</h2>
+            </div>
+            
             <div class="programs-grid">
-                <div class="program-card">
-                    <div class="icon-placeholder">🩺</div>
+                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">🩺</div>
                     <h3>Medical Outreach</h3>
-                    <p>Providing essential health screenings, vaccinations, and sexual health education to vulnerable girls.</p>
+                    <p>Clinical screenings and hygiene education led by professional medical personnel.</p>
+                    <div class="card-bg-circle"></div>
                 </div>
-                <div class="program-card">
-                    <div class="icon-placeholder">🎓</div>
+                
+                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">🎓</div>
                     <h3>Educational Aid</h3>
-                    <p>Securing scholarships, school supplies, and digital literacy training to ensure long-term stability.</p>
+                    <p>Providing the tools and financial backing to ensure no girl is left behind in the classroom.</p>
+                    <div class="card-bg-circle"></div>
                 </div>
-                <div class="program-card">
-                    <div class="icon-placeholder">🤝</div>
+                
+                <div class="program-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon">🤝</div>
                     <h3>Mentorship</h3>
-                    <p>Connecting girls with professional women to provide guidance, career pathways, and confidence.</p>
+                    <p>Direct access to professional role models who guide the next generation of African leaders.</p>
+                    <div class="card-bg-circle"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="main-footer">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <h3>Ikheloa's Foundation</h3>
-                <p>Registered NGO | Abuja, Nigeria</p>
-                <p>© 2026 All Rights Reserved.</p>
-            </div>
-            <div class="footer-contact">
-                <p>contact@ikheloasfoundation.org</p>
-                <p>+234 123 4567 890</p>
-            </div>
-            <div class="footer-socials">
-                <a href="#">IG</a>
-                <a href="#">TW</a>
-                <a href="#">LN</a>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
     <script src="assets/js/app.js"></script>
-
 </body>
 </html>
