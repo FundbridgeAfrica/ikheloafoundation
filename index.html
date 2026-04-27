@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ikheloa's Foundation | Helping the Vulnerable</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* World-Class Performance Guard */
         :root {
             --navy: #0A192F;
             --rose: #E8A8B1;
@@ -23,16 +22,18 @@
             --glass: rgba(255, 255, 255, 0.1);
         }
         
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #fdfdfd; color: var(--navy); overflow-x: hidden; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #fdfdfd; color: var(--navy); overflow-x: hidden; width: 100%; }
 
-        /* HEADER & NAV VISIBILITY FIX */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- MOBILE FIRST HEADER --- */
         .main-header {
             position: absolute;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.3s ease;
+            padding: 15px 0;
         }
 
         .nav-wrapper {
@@ -44,71 +45,94 @@
         .brand-logo {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--white); /* Changed to white for visibility */
+            font-size: 1.1rem; /* Smaller for mobile */
+            color: var(--white);
             text-decoration: none;
-            letter-spacing: 1px;
         }
 
-        .accent-text { color: var(--rose); }
-
-        .main-nav a {
-            color: var(--white); /* Changed to white for visibility */
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .main-nav a:hover { color: var(--rose); }
-
-        .nav-special {
-            padding: 8px 20px;
-            border: 1px solid var(--rose);
-            border-radius: 50px;
-        }
+        /* Hide desktop nav on mobile */
+        .main-nav { display: none; }
 
         .btn-premium {
             background: var(--white);
             color: var(--navy) !important;
-            padding: 10px 25px;
+            padding: 8px 18px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.85rem;
-            transition: 0.3s;
+            font-size: 0.75rem;
         }
 
-        .btn-premium:hover { background: var(--rose); color: var(--white) !important; }
-
-        /* HERO SECTION */
-        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; }
-        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.4); } /* Darkened slightly more for text pop */
-        .hero-content { z-index: 2; max-width: 900px; padding: 20px; }
-        .badge-2026 { font-size: 0.8rem; letter-spacing: 3px; color: var(--rose); font-weight: 800; margin-bottom: 10px; }
-        .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; }
-        .vulnerable-text { color: var(--rose); font-style: italic; }
-        .hero-tagline { font-size: 1.1rem; opacity: 0.9; margin: 20px 0 40px; }
+        /* --- HERO SECTION (MOBILE OPTIMIZED) --- */
+        .hero { 
+            position: relative; 
+            height: 100vh; 
+            min-height: 600px;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            text-align: center;
+        }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.35); }
+        .hero-content { width: 100%; }
         
-        .btn-primary-glow { background: var(--rose); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 0 20px rgba(232, 168, 177, 0.4); transition: 0.3s; display: inline-block; }
-        .btn-glass { border: 1px solid white; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-left: 15px; transition: 0.3s; }
-        .btn-glass:hover { background: white; color: var(--navy); }
+        .badge-2026 { font-size: 0.7rem; letter-spacing: 2px; color: var(--rose); font-weight: 800; margin-bottom: 10px; }
+        .hero-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1.1; margin: 0; }
+        .vulnerable-text { color: var(--rose); font-style: italic; }
+        .hero-tagline { font-size: 0.95rem; opacity: 0.9; margin: 15px 0 30px; line-height: 1.6; }
+        
+        .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .btn-primary-glow { background: var(--rose); color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; }
+        .btn-glass { border: 1px solid white; color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; }
 
-        /* IMPACT & FOUNDER SECTIONS (Kept your existing inline styles) */
-        .impact-card { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; }
-        .founder-main-img { width: 100%; border-radius: 30px; filter: saturate(1.1); box-shadow: 20px 20px 0px var(--rose); }
+        /* --- IMPACT SECTION --- */
+        .impact { padding: 60px 0; background: #fff; }
+        .impact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; /* Stack on mobile */
+            gap: 20px; 
+        }
+        .impact-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; }
+        .impact-number { font-size: 2.5rem; margin: 10px 0; color: var(--navy); }
 
-        @media (max-width: 768px) {
-            .main-nav { display: none; } /* Hide nav on mobile for clean UI */
-            .hero-title { font-size: 3rem; }
-            .btn-glass { margin: 10px 0 0 0; display: block; }
+        /* --- FOUNDER SECTION --- */
+        .founder-section { padding: 60px 0; background: #fdfdfd; }
+        .founder-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; /* Stack on mobile */
+            gap: 40px; 
+        }
+        .founder-image-box { position: relative; width: 100%; max-width: 400px; margin: 0 auto; }
+        .founder-main-img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0px var(--rose); }
+        .founder-float-card { position: absolute; bottom: -15px; right: -15px; background: var(--navy); color: white; padding: 15px; border-radius: 12px; }
+
+        .founder-name { font-family: 'Playfair Display'; font-size: 2.2rem; margin: 10px 0; }
+        .founder-bio { font-size: 1rem; line-height: 1.7; color: #444; }
+
+        /* --- FOOTER --- */
+        footer { padding: 40px 0; background: var(--navy); color: white; text-align: center; }
+        .footer-flex { display: flex; flex-direction: column; gap: 20px; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; }
+
+        /* --- DESKTOP ADJUSTMENTS --- */
+        @media (min-width: 992px) {
+            .brand-logo { font-size: 1.4rem; }
+            .main-nav { display: block; }
+            .hero-title { font-size: 4.5rem; }
+            .hero-tagline { font-size: 1.2rem; }
+            .hero-actions { flex-direction: row; justify-content: center; }
+            .btn-primary-glow, .btn-glass { width: auto; }
+            
+            .impact-grid { grid-template-columns: repeat(3, 1fr); }
+            .founder-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+            .footer-flex { flex-direction: row; justify-content: space-between; text-align: left; }
         }
     </style>
 </head>
 <body>
 
-    <header class="main-header" data-aos="fade-down" data-aos-duration="1000">
+    <header class="main-header" data-aos="fade-down">
         <div class="container nav-wrapper">
             <a href="index.html" class="brand-logo">
                 IKHELOA'S <span class="accent-text">FOUNDATION</span>
@@ -118,100 +142,91 @@
                 <a href="#about">The Vision</a>
                 <a href="#impact">Our Impact</a>
                 <a href="#programs">What We Do</a>
-                <a href="survey.html" class="nav-special">Take the Survey</a>
+                <a href="survey.html">Survey</a>
             </nav>
             
-            <div class="nav-actions">
-                <a href="#donate" class="btn btn-premium">Support a Girl</a>
-            </div>
+            <a href="#donate" class="btn btn-premium">Donate</a>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <img src="66c10abc-6bdf-4dea-ab1f-3052def24e04.jpeg" alt="Empowering the Girl Child" class="hero-bg">
-        <div class="container hero-content text-center">
+    <section class="hero">
+        <img src="66c10abc-6bdf-4dea-ab1f-3052def24e04.jpeg" alt="Hero" class="hero-bg">
+        <div class="container hero-content">
             <div class="badge-2026" data-aos="fade-down">ESTABLISHED 2026</div>
             <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
                 Helping the <br><span class="vulnerable-text">Vulnerable</span>
             </h1>
             <p class="hero-tagline" data-aos="fade-up" data-aos-delay="400">
                 Transforming vulnerability into strength. A world-class movement for the girl child, 
-                led by <strong>Nurse Ikheloa Omuekpen Promise</strong>.
+                led by Nurse Ikheloa Omuekpen Promise.
             </p>
             <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
-                <a href="#join" class="btn btn-primary-glow">Become a Partner</a>
-                <a href="#outreach" class="btn btn-glass">2026 Outreach Plan</a>
+                <a href="#join" class="btn btn-primary-glow">Partner With Us</a>
+                <a href="survey.html" class="btn btn-glass">Take the Survey</a>
             </div>
         </div>
     </section>
 
-    <section class="impact" id="impact" style="padding: 100px 0;">
+    <section class="impact" id="impact">
         <div class="container">
-            <div class="impact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                <div class="impact-card" data-aos="zoom-in-up">
-                    <div class="impact-icon" style="font-size: 40px; color: var(--rose); margin-bottom: 20px;"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <h2 class="impact-number" data-target="1500" style="font-size: 3rem; margin: 0;">0</h2>
-                    <p class="impact-label">Futures Empowered</p>
+            <div class="impact-grid">
+                <div class="impact-card" data-aos="fade-up">
+                    <i class="fa-solid fa-graduation-cap" style="font-size: 30px; color: var(--rose);"></i>
+                    <h2 class="impact-number" data-target="1500">0</h2>
+                    <p>Futures Empowered</p>
                 </div>
-                <div class="impact-card" data-aos="zoom-in-up" data-aos-delay="200">
-                    <div class="impact-icon" style="font-size: 40px; color: var(--rose); margin-bottom: 20px;"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <h2 class="impact-number" data-target="500" style="font-size: 3rem; margin: 0;">0</h2>
-                    <p class="impact-label">Medical Aids Provided</p>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-heart-pulse" style="font-size: 30px; color: var(--rose);"></i>
+                    <h2 class="impact-number" data-target="500">0</h2>
+                    <p>Medical Aids</p>
                 </div>
-                <div class="impact-card" data-aos="zoom-in-up" data-aos-delay="400">
-                    <div class="impact-icon" style="font-size: 40px; color: var(--rose); margin-bottom: 20px;"><i class="fa-solid fa-handshake-angle"></i></div>
-                    <h2 class="impact-number" data-target="50" style="font-size: 3rem; margin: 0;">0</h2>
-                    <p class="impact-label">Global Mentors</p>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-solid fa-handshake-angle" style="font-size: 30px; color: var(--rose);"></i>
+                    <h2 class="impact-number" data-target="50">0</h2>
+                    <p>Global Mentors</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="founder-section" id="about" style="padding: 100px 0; background: #fff;">
-        <div class="container founder-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-            <div class="founder-image-box" data-aos="fade-right" style="position: relative;">
-                <img src="b158b6a3-18b2-4dfc-be38-b46b53da2b33.jpeg" alt="Nurse Ikheloa Omuekpen Promise" class="founder-main-img">
-                <div class="founder-float-card" style="position: absolute; bottom: -20px; right: -20px; background: var(--navy); color: white; padding: 20px; border-radius: 15px;">
-                    <h3 style="margin: 0; color: var(--rose);">RN</h3>
-                    <p style="margin: 0; font-size: 12px; opacity: 0.8;">Clinical Excellence</p>
+    <section class="founder-section" id="about">
+        <div class="container founder-grid">
+            <div class="founder-image-box" data-aos="fade-right">
+                <img src="b158b6a3-18b2-4dfc-be38-b46b53da2b33.jpeg" alt="Nurse Ikheloa" class="founder-main-img">
+                <div class="founder-float-card">
+                    <h3 style="margin: 0; color: var(--rose); font-size: 1.2rem;">RN</h3>
                 </div>
             </div>
             
             <div class="founder-text-box" data-aos="fade-left">
-                <h4 class="mini-title" style="letter-spacing: 3px; color: var(--rose); font-weight: 800; font-size: 12px;">THE VISIONARY</h4>
-                <h2 class="founder-name" style="font-family: 'Playfair Display'; font-size: 3rem; margin: 10px 0;">Ikheloa Omuekpen Promise</h2>
-                <p class="founder-bio" style="font-size: 1.1rem; line-height: 1.8; color: #444;">
+                <h4 style="letter-spacing: 2px; color: var(--rose); font-size: 0.8rem;">THE VISIONARY</h4>
+                <h2 class="founder-name">Ikheloa Omuekpen Promise</h2>
+                <p class="founder-bio">
                     "As a Registered Nurse, I don't just treat illnesses—I treat broken futures. 
-                    My mission is to use medical precision and philanthropic passion to shield the vulnerable 
-                    from the harsh realities of neglect."
+                    My mission is to shield the vulnerable from the harsh realities of neglect."
                 </p>
-                <div class="slang-box" style="border-left: 5px solid var(--rose); padding-left: 20px; margin-top: 30px;">
-                    <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.5rem; margin: 0;">"Helping the vulnerable isn't just my slang; it's my assignment."</p>
+                <div style="border-left: 4px solid var(--rose); padding-left: 15px; margin-top: 20px;">
+                    <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.2rem;">"Helping the vulnerable is my assignment."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer style="padding: 60px 0; background: var(--navy); color: white;">
-        <div class="container">
-            <div class="footer-flex" style="display: flex; justify-content: space-between; align-items: center;">
-                <div class="footer-brand">
-                    <h3 style="font-family: 'Playfair Display';">Ikheloa's Foundation</h3>
-                    <p style="opacity: 0.6;">Changing the narrative for the African Girl Child.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#" style="color: white; margin-left: 20px; font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" style="color: white; margin-left: 20px; font-size: 1.2rem;"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" style="color: white; margin-left: 20px; font-size: 1.2rem;"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+    <footer>
+        <div class="container footer-flex">
+            <div>
+                <h3 style="font-family: 'Playfair Display'; margin-bottom: 5px;">Ikheloa's Foundation</h3>
+                <p style="opacity: 0.6; font-size: 0.8rem;">Empowering the African Girl Child.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#" style="color: white;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" style="color: white;"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
     <script src="app.js"></script>
 </body>
 </html>
