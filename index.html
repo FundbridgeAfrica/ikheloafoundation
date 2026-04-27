@@ -4,169 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ikheloa's Foundation | Helping the Vulnerable</title>
-    <meta name="description" content="An NGO focused on empowering the girl child, led by Nurse and Philanthropist Ikheloa Omuekpen Promise.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* World-Class Performance Guard */
+        :root {
+            --navy: #0A192F;
+            --rose: #E8A8B1;
+            --white: #FFFFFF;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #fdfdfd; color: var(--navy); overflow-x: hidden; }
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.5); }
+        .hero-content { z-index: 2; max-width: 900px; padding: 20px; }
+        .vulnerable-text { color: var(--rose); font-family: 'Playfair Display', serif; font-style: italic; }
+        .btn-primary-glow { background: var(--rose); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 0 20px rgba(232, 168, 177, 0.4); transition: 0.3s; }
+        .btn-primary-glow:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(232, 168, 177, 0.6); }
+        .impact-card { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; }
+        .founder-main-img { width: 100%; border-radius: 30px; filter: saturate(1.1); box-shadow: 20px 20px 0px var(--rose); }
+    </style>
 </head>
 <body>
 
-    <div id="scroll-progress"></div>
-
-    <header class="main-header" data-aos="fade-down" data-aos-duration="1000">
+    <header class="main-header">
         <div class="container nav-wrapper">
-            <a href="index.html" class="brand-logo">Ikheloa's <span class="accent-text">Foundation</span></a>
+            <a href="index.html" class="brand-logo">
+                IKHELOA'S <span class="accent-text">FOUNDATION</span>
+            </a>
             
             <nav class="main-nav">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#impact" class="nav-link">Impact</a>
-                <a href="#programs" class="nav-link">Programs</a>
-                <a href="survey.html" class="nav-link nav-special">Pad Brand Survey</a>
+                <a href="#about">The Vision</a>
+                <a href="#impact">Our Impact</a>
+                <a href="#programs">What We Do</a>
+                <a href="survey.html" class="nav-special">Take the Survey</a>
             </nav>
             
-            <div class="nav-actions">
-                <a href="#donate" class="btn btn-donate">Donate Now</a>
-                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-                    <span></span><span></span>
-                </button>
-            </div>
+            <a href="#donate" class="btn btn-premium">Support a Girl</a>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <span class="hero-pretitle" data-aos="fade-up" data-aos-delay="200">ESTABLISHED 2026</span>
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">
+    <section class="hero">
+        <img src="66c10abc-6bdf-4dea-ab1f-3052def24e04.jpeg" alt="Empowering the Girl Child" class="hero-bg">
+        <div class="container hero-content text-center">
+            <div class="badge-2026" data-aos="fade-down">ESTABLISHED 2026</div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
                 Helping the <br><span class="vulnerable-text">Vulnerable</span>
             </h1>
-            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="600">
-                Empowering the girl child through medical excellence and relentless mentorship. 
-                Directed by <strong>Nurse Ikheloa Omuekpen Promise</strong>.
+            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="400">
+                Transforming vulnerability into strength. A world-class movement for the girl child, 
+                led by <strong>Nurse Ikheloa Omuekpen Promise</strong>.
             </p>
-            <div class="hero-cta" data-aos="fade-up" data-aos-delay="800">
-                <a href="#join" class="btn btn-primary">Partner With Us</a>
-                <a href="#outreach" class="btn btn-secondary-outline">2026 Outreach Plan</a>
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
+                <a href="#join" class="btn btn-primary-glow">Become a Partner</a>
+                <a href="#outreach" class="btn btn-glass">2026 Outreach Plan</a>
             </div>
         </div>
-        <div class="scroll-indicator"></div>
     </section>
 
-    <section class="impact" id="impact">
+    <section class="impact" id="impact" style="padding: 100px 0;">
         <div class="container">
-            <div class="impact-grid">
-                <div class="impact-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="impact-circle">
-                        <h2 class="impact-number" data-target="1500">0</h2>
-                        <span class="plus">+</span>
-                    </div>
-                    <p class="impact-label">Girls Empowered</p>
+            <div class="impact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div class="impact-card" data-aos="zoom-in-up">
+                    <div class="impact-icon" style="font-size: 40px; color: var(--rose); margin-bottom: 20px;"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h2 class="impact-number" data-target="1500" style="font-size: 3rem; margin: 0;">0</h2>
+                    <p class="impact-label">Futures Empowered</p>
                 </div>
-                <div class="impact-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="impact-circle">
-                        <h2 class="impact-number" data-target="1">0</h2>
-                    </div>
-                    <p class="impact-label">Outreach 2026</p>
+                <div class="impact-card" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="impact-icon" style="font-size: 40px; color: var(--rose); margin-bottom: 20px;"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h2 class="impact-number" data-target="500" style="font-size: 3rem; margin: 0;">0</h2>
+                    <p class="impact-label">Medical Aids Provided</p>
                 </div>
-                <div class="impact-item" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="impact-circle">
-                        <h2 class="impact-number" data-target="500">0</h2>
-                        <span class="plus">+</span>
-                    </div>
-                    <p class="impact-label">Medical Aids</p>
-                </div>
-                <div class="impact-item" data-aos="zoom-in" data-aos-delay="700">
-                    <div class="impact-circle">
-                        <h2 class="impact-number" data-target="50">0</h2>
-                        <span class="plus">+</span>
-                    </div>
+                <div class="impact-card" data-aos="zoom-in-up" data-aos-delay="400">
+                    <div class="impact-icon" style="font-size: 40px; color: var(--rose); margin-bottom: 20px;"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <h2 class="impact-number" data-target="50" style="font-size: 3rem; margin: 0;">0</h2>
                     <p class="impact-label">Global Mentors</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="founder-spotlight" id="about">
-        <div class="container spotlight-grid">
-            <div class="spotlight-image-wrapper" data-aos="fade-right">
-                <div class="image-frame">
-                    <img src="ikheloa_nurse.jpeg" alt="Nurse Ikheloa" class="founder-img">
-                </div>
-                <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
-                    <h3>RN</h3>
-                    <p>Registered Nurse</p>
+    <section class="founder-section" id="about" style="padding: 100px 0; background: #fff;">
+        <div class="container founder-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div class="founder-image-box" data-aos="fade-right" style="position: relative;">
+                <img src="b158b6a3-18b2-4dfc-be38-b46b53da2b33.jpeg" alt="Nurse Ikheloa Omuekpen Promise" class="founder-main-img">
+                <div class="founder-float-card" style="position: absolute; bottom: -20px; right: -20px; background: var(--navy); color: white; padding: 20px; border-radius: 15px;">
+                    <h3 style="margin: 0; color: var(--rose);">RN</h3>
+                    <p style="margin: 0; font-size: 12px; opacity: 0.8;">Clinical Excellence</p>
                 </div>
             </div>
             
-            <div class="spotlight-text" data-aos="fade-left">
-                <h4 class="section-subtitle">THE VISIONARY</h4>
-                <h2 class="spotlight-name">Ikheloa Omuekpen Promise</h2>
-                <div class="divider"></div>
-                <p class="lead-text">
-                    As a healthcare professional, I don't just see patients; I see futures that need safeguarding. 
-                    At Ikheloa’s Foundation, we bridge the gap between vulnerability and opportunity.
+            <div class="founder-text-box" data-aos="fade-left">
+                <h4 class="mini-title" style="letter-spacing: 3px; color: var(--rose); font-weight: 800; font-size: 12px;">THE VISIONARY</h4>
+                <h2 class="founder-name" style="font-family: 'Playfair Display'; font-size: 3rem; margin: 10px 0;">Ikheloa Omuekpen Promise</h2>
+                <p class="founder-bio" style="font-size: 1.1rem; line-height: 1.8; color: #444;">
+                    "As a Registered Nurse, I don't just treat illnesses—I treat broken futures. 
+                    My mission is to use medical precision and philanthropic passion to shield the vulnerable 
+                    from the harsh realities of neglect."
                 </p>
-                <p>
-                    Our mission is clinical in its precision but human in its heart. We are starting 2026 with 
-                    a drive that targets the very core of girl-child dignity.
-                </p>
-                <blockquote class="founder-slang">
-                    "Helping the vulnerable isn't just my slang; it's my assignment."
-                </blockquote>
+                <div class="slang-box" style="border-left: 5px solid var(--rose); padding-left: 20px; margin-top: 30px;">
+                    <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.5rem; margin: 0;">"Helping the vulnerable isn't just my slang; it's my assignment."</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="programs" id="programs">
+    <footer class="glass-footer" style="padding: 60px 0; background: var(--navy); color: white;">
         <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h4 class="section-subtitle">OUR PILLARS</h4>
-                <h2 class="section-title">Strategic Interventions</h2>
-            </div>
-            
-            <div class="programs-grid">
-                <div class="program-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon">🩺</div>
-                    <h3>Medical Outreach</h3>
-                    <p>Clinical screenings and hygiene education led by professional medical personnel.</p>
-                    <div class="card-bg-circle"></div>
+            <div class="footer-flex" style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="footer-brand">
+                    <h3 style="font-family: 'Playfair Display';">Ikheloa's Foundation</h3>
+                    <p style="opacity: 0.6;">Changing the narrative for the African Girl Child.</p>
                 </div>
-                
-                <div class="program-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-icon">🎓</div>
-                    <h3>Educational Aid</h3>
-                    <p>Providing the tools and financial backing to ensure no girl is left behind in the classroom.</p>
-                    <div class="card-bg-circle"></div>
-                </div>
-                
-                <div class="program-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-icon">🤝</div>
-                    <h3>Mentorship</h3>
-                    <p>Direct access to professional role models who guide the next generation of African leaders.</p>
-                    <div class="card-bg-circle"></div>
+                <div class="footer-links">
+                    <a href="#" style="color: white; margin-left: 20px; font-size: 1.5rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" style="color: white; margin-left: 20px; font-size: 1.5rem;"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" style="color: white; margin-left: 20px; font-size: 1.5rem;"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <div class="container text-center">
-            <p>© 2026 Ikheloa's Foundation. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+        AOS.init({ duration: 1000, once: true });
     </script>
     <script src="app.js"></script>
 </body>
