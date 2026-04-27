@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dignity & Destiny Survey | Ikheloa's Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/survey-style.css">
+</head>
+<body>
+
+    <div class="survey-container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+
+        <header class="survey-header">
+            <span class="foundation-tag">Ikheloa's Foundation</span>
+            <h1>Dignity & Destiny Drive</h1>
+            <p class="description">Hi sis 💞, I’m planning a menstrual hygiene outreach for JSS girls. Help me pick the right pad brand. Your answers = dignity for a girl.</p>
+            <div class="privacy-note">🔒 Responses are 100% anonymous</div>
+        </header>
+
+        <form id="padSurveyForm">
+            <div class="form-group active">
+                <label>1. What age range are you?</label>
+                <div class="radio-options">
+                    <label class="option-card"><input type="radio" name="age_range" value="15-18"> <span>15–18</span></label>
+                    <label class="option-card"><input type="radio" name="age_range" value="19-24"> <span>19–24</span></label>
+                    <label class="option-card"><input type="radio" name="age_range" value="25-30"> <span>25–30</span></label>
+                    <label class="option-card"><input type="radio" name="age_range" value="31+"> <span>31+</span></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>2. What brand of sanitary pad do you CURRENTLY use most?</label>
+                <input type="text" name="current_brand" placeholder="e.g. Molped, Always, Virony..." required>
+            </div>
+
+            <div class="form-group">
+                <label>3. Why do you use that brand? (Pick all that apply)</label>
+                <div class="checkbox-grid">
+                    <label><input type="checkbox" name="reason" value="absorbent"> Highly Absorbent</label>
+                    <label><input type="checkbox" name="reason" value="comfortable"> Comfortable/Soft</label>
+                    <label><input type="checkbox" name="reason" value="affordable"> Affordable</label>
+                    <label><input type="checkbox" name="reason" value="availability"> Easy to find</label>
+                    <label><input type="checkbox" name="reason" value="skin-friendly"> No rashes/itching</label>
+                    <label><input type="checkbox" name="reason" value="trust"> Long-term trust</label>
+                </div>
+                <input type="text" name="other_reason" placeholder="Other reasons..." class="mt-10">
+            </div>
+
+            <div class="form-group">
+                <label>4. How many hours does ONE pad last on a heavy flow day?</label>
+                <select name="flow_duration">
+                    <option value="2-3">2–3 hours</option>
+                    <option value="4">4 hours</option>
+                    <option value="6">6 hours</option>
+                    <option value="8+">8+ hours</option>
+                    <option value="none">I don’t track</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>5. Have you switched to a cheaper brand in the last 2 years?</label>
+                <div class="radio-options">
+                    <label class="option-card"><input type="radio" name="switched" value="yes"> <span>Yes, because of the economy</span></label>
+                    <label class="option-card"><input type="radio" name="switched" value="no"> <span>No, still use same brand</span></label>
+                    <label class="option-card"><input type="radio" name="switched" value="available"> <span>I switch based on availability</span></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>6. If you switched, what brand was it Before vs. Now?</label>
+                <input type="text" name="switch_details" placeholder="e.g. Before: Always, Now: Lily">
+            </div>
+
+            <div class="form-group">
+                <label>7. Low Price vs. High Quality</label>
+                <div class="range-container">
+                    <span>Price</span>
+                    <input type="range" name="priority_scale" min="1" max="5" step="1">
+                    <span>Quality</span>
+                </div>
+                <div class="range-labels">
+                    <small>1: Cheapest</small>
+                    <small>5: Premium</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>8. What’s ONE thing you HATE about your current pad? *</label>
+                <textarea name="pad_hate" placeholder="e.g. Too thick, no wings, causes heat..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>9. For a JSS 3 girl, what feature matters MOST?</label>
+                <div class="radio-options">
+                    <label class="option-card"><input type="radio" name="top_feature" value="thin"> <span>Very thin (discreet)</span></label>
+                    <label class="option-card"><input type="radio" name="top_feature" value="absorbent"> <span>Super Absorbent</span></label>
+                    <label class="option-card"><input type="radio" name="top_feature" value="wings"> <span>Soft Wings</span></label>
+                    <label class="option-card"><input type="radio" name="top_feature" value="price"> <span>Highly Affordable</span></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>10. Any brand we should AVOID for young girls? (Optional)</label>
+                <textarea name="avoid_brand" placeholder="Tell me why—this helps me protect them."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Submit Survey</button>
+        </form>
+    </div>
+
+    <script src="assets/js/survey.js"></script>
+</body>
+</html>
