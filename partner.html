@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Partner With Us | Ikheloa's Foundation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --navy: #0A192F;
+            --rose: #E8A8B1;
+            --white: #FFFFFF;
+            --muted-bg: #F8F9FA;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; width: 100%; }
+        .container { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- PARTNER HERO --- */
+        .partner-hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.85)), url('66c10abc-6bdf-4dea-ab1f-3052def24e04.jpeg') no-repeat center center/cover;
+            padding: 120px 0 60px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        .partner-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; line-height: 1.2; margin-bottom: 15px; }
+        .partner-hero p { font-size: 1rem; color: var(--rose); font-style: italic; opacity: 0.9; }
+
+        /* --- EDITORIAL STORYTELLING SECTION --- */
+        .story-section { padding: 60px 0; background: var(--white); }
+        .story-block { margin-bottom: 50px; }
+        
+        .story-text { font-size: 1rem; line-height: 1.8; color: #334155; margin-bottom: 25px; text-align: justify; }
+        .story-text .dropcap { font-family: 'Playfair Display', serif; font-size: 3.5rem; float: left; margin-top: -8px; margin-right: 10px; color: var(--navy); font-weight: 700; line-height: 1; }
+        .story-text em { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); font-weight: 600; }
+        
+        /* Inline editorial images */
+        .story-image-wrapper { width: 100%; margin: 30px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .story-img { width: 100%; height: auto; object-fit: cover; display: block; }
+        .image-caption { font-size: 0.8rem; font-style: italic; color: var(--text-muted); text-align: center; padding: 12px; background: var(--muted-bg); border-top: 1px solid #edf2f7; }
+
+        /* --- THE INITIATIVE PILLARS --- */
+        .mission-callout { background: var(--muted-bg); border-left: 4px solid var(--rose); padding: 30px 20px; border-radius: 0 16px 16px 0; margin: 40px 0; }
+        .mission-callout h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 15px; }
+        .mission-card { background: var(--white); padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .mission-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .mission-card h4 i { color: var(--rose); }
+        .mission-card p { font-size: 0.88rem; line-height: 1.6; color: #475569; }
+
+        /* --- FINANCIAL TRANSPARENCY BOX (THE ACCOUNT DETAILS) --- */
+        .partnership-box {
+            background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
+            color: var(--white);
+            padding: 40px 25px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.3);
+            text-align: center;
+            margin-top: 6px;
+        }
+        .partnership-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
+        .partnership-box p { font-size: 0.9rem; opacity: 0.8; line-height: 1.5; margin-bottom: 30px; }
+        
+        .bank-details-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            margin: 0 auto 30px auto;
+        }
+        .bank-name { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--rose); font-weight: 800; }
+        .account-number { font-size: 2rem; font-weight: 800; letter-spacing: 1px; margin: 10px 0; color: var(--white); font-family: monospace; }
+        .account-name { font-size: 0.9rem; font-weight: 600; opacity: 0.9; text-transform: uppercase; }
+
+        .direct-contact { display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; font-size: 0.9rem; margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .direct-contact a { color: var(--rose); text-decoration: none; font-weight: 600; }
+
+        /* --- LAPTOP ADJUSTMENTS --- */
+        @media (min-width: 768px) {
+            .partner-hero { padding: 16px 0 100px 0; }
+            .partner-hero h1 { font-size: 3.2rem; }
+            .partner-hero p { font-size: 1.3rem; }
+            .story-section { padding: 100px 0; }
+            .story-text { font-size: 1.1rem; line-height: 1.9; }
+            .partnership-box { padding: 60px; }
+            .partnership-box h2 { font-size: 2.4rem; }
+            .direct-contact { flex-direction: row; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Simple Navigation Back Home -->
+    <div style="background: #0A192F; padding: 15px 0;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" style="color: white; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;"><i class="fa-solid fa-arrow-left"></i> BACK TO HOME</a>
+            <span style="color: var(--rose); font-size: 0.85rem; font-weight: 800;">PARTNER COMPLIANCE</span>
+        </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="partner-hero">
+        <div class="container">
+            <h1 data-aos="fade-up">The Armor of Dignity</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Why your strength is needed to protect the vulnerable.</p>
+        </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <main class="story-section">
+        <div class="container">
+            
+            <div class="story-block" data-aos="fade-up">
+                <p class="story-text">
+                    <span class="dropcap">A</span>cross many rural communities in Africa and right here in Nigeria, an silent emergency unfolds every single month. It is an emergency not documented in statistical manuals, yet its impact alters the trajectories of millions. The average girl child in rural schools faces a punishing biological taxation: her menstruation. Left without alternatives, thousands are forced to navigate this milestone with makeshift rags, cardboard pieces, or complete isolation.
+                </p>
+                <p class="story-text">
+                    This reality strikes deeper than hygiene—it attacks her education. <em>Many girls miss critical school cycles completely during their periods due to a simple, preventable lack of access</em>, falling further behind their peers until dropping out becomes their only definitive exit. 
+                </p>
+            </div>
+
+            <!-- Picture 1 Embedded Inside Paragraph -->
+            <div class="story-image-wrapper" data-aos="zoom-in">
+                <img src="download (4).jpeg" alt="Girl child in rural setting looking thoughtful" class="story-img">
+                <div class="image-caption">Behind every statistic is a real girl sitting at home, missing her classes because dignity is out of reach.</div>
+            </div>
+
+            <div class="story-block" data-aos="fade-up">
+                <p class="story-text">
+                    We believe vulnerability should never determine a child’s ultimate destiny. This realization birthed the framework for our next milestone outreach coming up on the <strong>29th of June, 2026</strong> at <strong>Goddy International College</strong>. Led by Registered Nurse Ikheloa Promise Omuekpen, we are not approaching this with mere charity, but with an intentional, dual-layered intervention system designed to construct lasting inner resilience.
+                </p>
+            </div>
+
+            <!-- Picture 2 Embedded Inside Paragraph -->
+            <div class="story-image-wrapper" data-aos="zoom-in">
+                <img src="download (5).jpeg" alt="Children waiting for inspiration and support" class="story-img">
+                <div class="image-caption">Our assignment is simple: to arrive before hopelessness does, carrying both supplies and clear direction.</div>
+            </div>
+
+            <div class="story-block" data-aos="fade-up">
+                <div class="mission-callout">
+                    <h3>The June 2026 Outreach Blueprints</h3>
+                    
+                    <div class="mission-card">
+                        <h4><i class="fa-solid fa-shield-heart"></i> Gift a Girl Child Pad Initiative</h4>
+                        <p>A closed, safe space dedicated exclusively to female JSS 3 students. We supply premium sanitary towels alongside comprehensive clinical education regarding menstrual health management. We don't just hand out products; we eliminate systemic school absenteeism.</p>
+                    </div>
+
+                    <div class="mission-card">
+                        <h4><i class="fa-solid fa-compass"></i> Career & Purpose Acceleration Talk</h4>
+                        <p>An interactive assembly engaging both male and female JSS 3 students. Nurse Ikheloa facilitates an intentional session focused on identifying natural talent, aligning ambition with real-world skills, and mapping choices to divine destiny. We inject clarity before they step into higher learning structures.</p>
+                    </div>
+                </div>
+                
+                <p class="story-text">
+                    Every pad, educational tool, and medical asset deployed during this 90 to 120-minute transformation framework is completely self-funded by our ecosystem and provided at zero cost to the institution. But to step past the gates of one school and shield the next thousand girls, we require co-builders.
+                </p>
+            </div>
+
+            <!-- Box for Partnership with Direct Account Details -->
+            <div class="partnership-box" data-aos="zoom-in-up">
+                <h2>Direct Partnership Command</h2>
+                <p>Your contribution translates immediately into physical boxes of pads and clinical educational resources. Use our secured direct NGO channel below to fund this deployment.</p>
+                
+                <div class="bank-details-card">
+                    <div class="bank-name">United Bank for Africa (UBA)</div>
+                    <div class="account-number">2269701175</div>
+                    <div class="account-name">Ikheloa Promise Omuekpen</div>
+                </div>
+
+                <p style="font-size: 0.8rem; font-style: italic; opacity: 0.6; margin-bottom: 0;">Confirmations are audited and tracked for transparency reports.</p>
+                
+                <div class="direct-contact">
+                    <span><i class="fa-solid fa-phone" style="color: var(--rose);"></i> Hotlines: +234 903 203 0890</span>
+                    <span><i class="fa-solid fa-envelope" style="color: var(--rose);"></i> Desk: ikheloapromise48@gmail.com</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
