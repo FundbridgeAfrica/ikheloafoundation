@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ikheloa's Foundation | Pad Brand Survey</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -15,99 +15,178 @@
             --accent: #E8A8B1;
             --glass: rgba(255, 255, 255, 0.95);
         }
+
+        /* --- MOBILE-FIRST BASE LAYOUT --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body.survey-page {
             background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 12px; /* Fitted padding for tiny screens */
             font-family: 'Poppins', sans-serif;
+            width: 100%;
+            overflow-x: hidden;
         }
+
         .survey-container {
             background: var(--glass);
             backdrop-filter: blur(15px);
-            max-width: 600px;
             width: 100%;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            max-width: 500px; /* Perfectly balances phone and laptop screens */
+            padding: 24px 20px; /* Reduced padding on mobile to maximize view space */
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
+
         .brand-badge {
             background: var(--primary);
             color: white;
             display: inline-block;
-            padding: 5px 15px;
+            padding: 4px 12px;
             border-radius: 50px;
-            font-size: 12px;
-            margin-bottom: 15px;
+            font-size: 11px;
+            margin-bottom: 12px;
+            font-weight: 500;
         }
+
+        .survey-header h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 5px 0;
+            font-size: 1.5rem; /* Scaled down for mobile fit */
+            color: var(--primary);
+        }
+
+        .description {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
         .main-label {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--primary);
             display: block;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            line-height: 1.4;
         }
+
+        /* --- TAPPABLE CARDS FOR MOBILE FLOW --- */
         .modern-card {
             background: white;
-            border: 2px solid #eee;
-            padding: 12px 20px;
-            border-radius: 15px;
+            border: 2px solid #eaeaea;
+            padding: 14px 16px;
+            border-radius: 12px;
             margin-bottom: 10px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            width: 100%;
         }
+        
+        .modern-card input[type="radio"], 
+        .modern-card input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .modern-card span {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
         .modern-card:hover { border-color: var(--accent); background: #fff9fa; }
+
+        /* --- INPUT FIELDS --- */
         .premium-input, .premium-textarea {
             width: 100%;
-            padding: 15px;
-            border: none;
-            border-bottom: 2px solid #ddd;
-            background: transparent;
-            font-size: 1rem;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            background: white;
+            font-size: 14px;
             outline: none;
             font-family: inherit;
+            transition: 0.3s;
         }
-        .premium-textarea { border: 2px solid #eee; border-radius: 15px; min-height: 100px; }
+        .premium-input:focus, .premium-textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(232, 168, 177, 0.2);
+        }
+        .premium-textarea { min-height: 90px; resize: vertical; }
+
+        /* --- NAVIGATION ACTIONS --- */
+        .survey-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
         .btn-nav {
+            flex: 1; /* Dynamic equal sizing on mobile */
             background: var(--primary);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 14px 20px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            transition: 0.3s;
+            font-size: 14px;
+            transition: 0.2s ease;
+            text-align: center;
         }
-        .btn-nav:hover { opacity: 0.9; transform: translateY(-2px); }
+        .btn-nav:hover { opacity: 0.9; }
+        .btn-nav:disabled { background: #ccc !important; cursor: not-allowed; }
+
+        /* --- PROGRESS SYSTEM --- */
         .progress-track {
             height: 6px;
-            background: #eee;
+            background: #eef0f2;
             border-radius: 10px;
-            margin: 20px 0;
+            margin: 15px 0 25px 0;
             overflow: hidden;
         }
         .progress-fill {
             height: 100%;
             background: var(--accent);
-            width: 10%; /* Starts at 10% */
-            transition: width 0.5s ease;
+            width: 10%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .form-step { display: none; animation: fadeIn 0.5s ease; }
-        .form-step.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- DYNAMIC TRANSITION LOGIC --- */
+        .form-step { display: none; }
+        .form-step.active { display: block; animation: mobileSlideIn 0.4s ease-out; }
+        
+        @keyframes mobileSlideIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .mt-20 { margin-top: 20px; }
+
+        /* --- LAPTOP FITTED VIEW BALANCE --- */
+        @media (min-width: 768px) {
+            .survey-container { padding: 40px; }
+            .survey-header h1 { font-size: 1.8rem; }
+            .main-label { font-size: 1.1rem; }
+        }
     </style>
 </head>
 <body class="survey-page">
 
-    <div class="survey-container" data-aos="zoom-in" data-aos-duration="800">
+    <div class="survey-container" data-aos="zoom-in" data-aos-duration="600">
         <div class="progress-wrapper">
-            <div class="progress-info" style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600;">
+            <div class="progress-info" style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: var(--primary);">
                 <span id="step-count">Question 1 of 10</span>
                 <span id="percent-complete">10%</span>
             </div>
@@ -118,12 +197,13 @@
 
         <header class="survey-header">
             <div class="brand-badge">Ikheloa's Foundation</div>
-            <h1 style="font-family: 'Playfair Display'; margin: 10px 0; font-size: 1.8rem;">Menstrual Hygiene Outreach</h1>
-            <p class="description" style="color: #666; font-size: 14px; line-height: 1.5;">Hi sis 💞, help me pick the right pad brand for our outreach to JSS girls. Your answers = dignity. Thank you!</p>
+            <h1>Menstrual Hygiene Outreach</h1>
+            <p class="description">Hi sis 💞, help me pick the right pad brand for our outreach to JSS girls. Your answers = dignity. Thank you!</p>
         </header>
 
-        <form id="padSurveyForm" class="multi-step-form mt-20">
+        <form id="padSurveyForm" class="multi-step-form mt-20" onsubmit="return false;">
             
+            <!-- Q1: Age -->
             <div class="form-step active" data-step="1">
                 <label class="main-label">1. What age range are you?</label>
                 <div class="radio-grid">
@@ -134,11 +214,13 @@
                 </div>
             </div>
 
+            <!-- Q2: Current Brand -->
             <div class="form-step" data-step="2">
                 <label class="main-label">2. What brand of sanitary pad do you CURRENTLY use most?</label>
                 <input type="text" name="current_brand" class="premium-input" placeholder="Example: Molped, Always, Virony, Lily...">
             </div>
 
+            <!-- Q3: Reasons -->
             <div class="form-step" data-step="3">
                 <label class="main-label">3. Why do you use that brand? (Pick all that apply)</label>
                 <div class="checkbox-grid">
@@ -152,6 +234,7 @@
                 <input type="text" name="other_reasons" class="premium-input mt-20" placeholder="Other: type in your reasons here">
             </div>
 
+            <!-- Q4: Duration -->
             <div class="form-step" data-step="4">
                 <label class="main-label">4. How many hours does ONE pad usually last you on a heavy flow day?</label>
                 <div class="radio-grid">
@@ -163,6 +246,7 @@
                 </div>
             </div>
 
+            <!-- Q5: Switched -->
             <div class="form-step" data-step="5">
                 <label class="main-label">5. Have you switched to a cheaper brand in the last 2 years because of price?</label>
                 <div class="radio-grid">
@@ -172,29 +256,33 @@
                 </div>
             </div>
 
+            <!-- Q6: Before and Now -->
             <div class="form-step" data-step="6">
                 <label class="main-label">6. If you switched, what brand did you use BEFORE and what do you use NOW?</label>
                 <input type="text" name="switch_details" class="premium-input" placeholder="Example: Before = Always, Now = Lily">
-                <p style="font-size: 11px; color: #888; margin-top: 5px;">Skip if you answered “No” above.</p>
+                <p style="font-size: 11px; color: #777; margin-top: 6px; padding-left: 4px;">Skip if you answered “No” above.</p>
             </div>
 
+            <!-- Q7: Linear Scale -->
             <div class="form-step" data-step="7">
                 <label class="main-label">7. How important is "low price" vs "high quality"?</label>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px; font-weight: 600;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 12px; font-weight: 600; color: var(--primary);">
                     <span>Price (Cheapest)</span>
                     <span>Quality (Premium)</span>
                 </div>
-                <input type="range" name="price_vs_quality" min="1" max="5" step="1" style="width: 100%; accent-color: var(--accent);">
-                <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 12px; color: #666;">
+                <input type="range" name="price_vs_quality" min="1" max="5" step="1" style="width: 100%; accent-color: var(--primary); height: 8px; cursor: pointer;">
+                <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: #666; font-weight: 600;">
                     <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
                 </div>
             </div>
 
+            <!-- Q8: Hate -->
             <div class="form-step" data-step="8">
                 <label class="main-label">8. What’s ONE thing you HATE about your current pad?</label>
                 <input type="text" name="pad_hate" class="premium-input" placeholder="Example: Too thick, no wings, rashes...">
             </div>
 
+            <!-- Q9: JSS 3 Features -->
             <div class="form-step" data-step="9">
                 <label class="main-label">9. If you were a JSS 3 girl again, what pad feature would matter MOST?</label>
                 <div class="radio-grid">
@@ -206,18 +294,20 @@
                 </div>
             </div>
 
+            <!-- Q10: Avoid -->
             <div class="form-step" data-step="10">
                 <label class="main-label">10. Any pad brand you think I should AVOID for young girls? Why?</label>
                 <textarea name="avoid_brand" class="premium-textarea" placeholder="Be honest — this helps me protect them."></textarea>
             </div>
 
-            <div class="survey-nav mt-20" style="display: flex; justify-content: space-between; align-items: center;">
-                <button type="button" class="btn-nav btn-prev" id="prevBtn" style="background: #ccc;" disabled>Back</button>
-                <button type="button" class="btn-nav btn-next" id="nextBtn">Next Question</button>
+            <!-- Navigation Bar (Equal Sizing on Mobile) -->
+            <div class="survey-nav mt-20">
+                <button type="button" class="btn-nav" id="prevBtn" style="background: #ccc;" disabled>Back</button>
+                <button type="button" class="btn-nav" id="nextBtn">Next Question</button>
             </div>
         </form>
 
-        <footer class="survey-footer" style="margin-top: 30px; text-align: center; font-size: 12px; color: #888;">
+        <footer class="survey-footer" style="margin-top: 24px; text-align: center; font-size: 11px; color: #777;">
             <p>🔒 All responses are anonymous • Ikheloa's Foundation</p>
         </footer>
     </div>
@@ -225,7 +315,76 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+
+        // FAILSAFE MULTI-STEP SCRIPT EXECUTION
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = Array.from(document.querySelectorAll('.form-step'));
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const progressBar = document.getElementById('progress-bar');
+            const stepCountText = document.getElementById('step-count');
+            const percentText = document.getElementById('percent-complete');
+
+            let currentStep = 0;
+
+            function updateSurveyFlow() {
+                // Toggle card views
+                steps.forEach((step, idx) => {
+                    step.classList.toggle('active', idx === currentStep);
+                });
+
+                // Update liquid bar width metrics
+                const visualPercentage = ((currentStep + 1) / steps.length) * 100;
+                progressBar.style.width = `${visualPercentage}%`;
+                
+                // Update navigation text
+                stepCountText.innerText = `Question ${currentStep + 1} of ${steps.length}`;
+                percentText.innerText = `${Math.round(visualPercentage)}%`;
+
+                // Handle Back state visibility
+                prevBtn.disabled = currentStep === 0;
+                prevBtn.style.background = currentStep === 0 ? "#ccc" : "#0A192F";
+
+                // Final step switch adjustments
+                if (currentStep === steps.length - 1) {
+                    nextBtn.innerText = "Finish & Help";
+                } else {
+                    nextBtn.innerText = "Next Question";
+                }
+            }
+
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Blocks browser interception completely
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    updateSurveyFlow();
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth transition jump back to top on mobile viewports
+                } else {
+                    // Final submission execution rendering
+                    document.querySelector('.survey-container').innerHTML = `
+                        <div style="text-align: center; padding: 30px 10px;" data-aos="zoom-in">
+                            <div style="font-size: 45px; margin-bottom: 15px;">💞</div>
+                            <h2 style="font-family: 'Playfair Display', serif; color: #0A192F; font-size: 1.6rem;">Thank You, Sis!</h2>
+                            <p style="color: #555; line-height: 1.6; margin-top: 12px; font-size: 14px;">
+                                Your voice has given dignity to a JSS girl. We will use your feedback to choose the best pads for the outreach.
+                            </p>
+                            <a href="index.html" style="display: inline-block; background: #0A192F; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 20px; font-size: 14px;">Back to Home</a>
+                        </div>
+                    `;
+                }
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentStep > 0) {
+                    currentStep--;
+                    updateSurveyFlow();
+                }
+            });
+
+            // Run alignment on target instantiation
+            updateSurveyFlow();
+        });
     </script>
-    <script src="survey.js"></script>
 </body>
 </html>
