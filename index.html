@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,6 +19,7 @@
             --navy: #0A192F;
             --rose: #E8A8B1;
             --white: #FFFFFF;
+            --light-bg: #F8F9FA;
             --glass: rgba(255, 255, 255, 0.1);
         }
         
@@ -45,13 +46,25 @@
         .brand-logo {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 1.1rem; /* Smaller for mobile */
+            font-size: 1.1rem;
             color: var(--white);
             text-decoration: none;
         }
 
+        .accent-text { color: var(--rose); }
+
         /* Hide desktop nav on mobile */
         .main-nav { display: none; }
+
+        .main-nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .main-nav a:hover { color: var(--rose); }
 
         .btn-premium {
             background: var(--white);
@@ -61,9 +74,11 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 0.75rem;
+            transition: 0.3s;
         }
+        .btn-premium:hover { background: var(--rose); color: var(--white) !important; }
 
-        /* --- HERO SECTION (MOBILE OPTIMIZED) --- */
+        /* --- HERO SECTION --- */
         .hero { 
             position: relative; 
             height: 100vh; 
@@ -83,37 +98,61 @@
         .hero-tagline { font-size: 0.95rem; opacity: 0.9; margin: 15px 0 30px; line-height: 1.6; }
         
         .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
-        .btn-primary-glow { background: var(--rose); color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; }
-        .btn-glass { border: 1px solid white; color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; }
+        .btn-primary-glow { text-align: center; background: var(--rose); color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; box-shadow: 0 5px 15px rgba(232, 168, 177, 0.3); transition: 0.3s; }
+        .btn-glass { text-align: center; border: 1px solid white; color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; transition: 0.3s; }
+        .btn-primary-glow:hover, .btn-glass:hover { transform: translateY(-2px); opacity: 0.9; }
 
         /* --- IMPACT SECTION --- */
         .impact { padding: 60px 0; background: #fff; }
         .impact-grid { 
             display: grid; 
-            grid-template-columns: 1fr; /* Stack on mobile */
+            grid-template-columns: 1fr;
             gap: 20px; 
         }
         .impact-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; }
-        .impact-number { font-size: 2.5rem; margin: 10px 0; color: var(--navy); }
+        .impact-number { font-size: 2.5rem; margin: 10px 0; color: var(--navy); font-weight: 800; }
+
+        /* --- NEW: CRITICAL METRICS SECTION (ENGAGING DATA) --- */
+        .metrics-section { padding: 60px 0; background: var(--light-bg); }
+        .section-title-center { text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 35px; color: var(--navy); }
+        .metrics-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        .metric-stat-box { background: var(--white); padding: 30px 25px; border-radius: 20px; border-top: 4px solid var(--rose); box-shadow: 0 8px 24px rgba(0,0,0,0.02); }
+        .metric-percentage { font-size: 3rem; font-weight: 800; color: var(--rose); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .metric-label { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+        .metric-desc { font-size: 0.9rem; color: #555; line-height: 1.5; }
 
         /* --- FOUNDER SECTION --- */
-        .founder-section { padding: 60px 0; background: #fdfdfd; }
+        .founder-section { padding: 60px 0; background: #fff; }
         .founder-grid { 
             display: grid; 
-            grid-template-columns: 1fr; /* Stack on mobile */
+            grid-template-columns: 1fr;
             gap: 40px; 
+            align-items: center;
         }
         .founder-image-box { position: relative; width: 100%; max-width: 400px; margin: 0 auto; }
-        .founder-main-img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0px var(--rose); }
+        .founder-main-img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0px var(--rose); object-fit: cover; }
         .founder-float-card { position: absolute; bottom: -15px; right: -15px; background: var(--navy); color: white; padding: 15px; border-radius: 12px; }
 
         .founder-name { font-family: 'Playfair Display'; font-size: 2.2rem; margin: 10px 0; }
         .founder-bio { font-size: 1rem; line-height: 1.7; color: #444; }
 
+        /* --- NEW: UBUNTU AFRICAN PHILOSOPHY BLOCK --- */
+        .ubuntu-section { 
+            padding: 80px 0; 
+            background: linear-gradient(rgba(10, 25, 47, 0.92), rgba(10, 25, 47, 0.95)), url('66c10abc-6bdf-4dea-ab1f-3052def24e04.jpeg') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+        .ubuntu-symbol { font-size: 2.5rem; color: var(--rose); margin-bottom: 15px; }
+        .ubuntu-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .ubuntu-text { font-size: 1.05rem; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.7; opacity: 0.9; }
+
         /* --- FOOTER --- */
-        footer { padding: 40px 0; background: var(--navy); color: white; text-align: center; }
+        footer { padding: 40px 0; background: var(--navy); color: white; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
         .footer-flex { display: flex; flex-direction: column; gap: 20px; }
         .footer-links { display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; }
+        .footer-links a { color: var(--white); transition: 0.3s; }
+        .footer-links a:hover { color: var(--rose); }
 
         /* --- DESKTOP ADJUSTMENTS --- */
         @media (min-width: 992px) {
@@ -124,15 +163,18 @@
             .hero-actions { flex-direction: row; justify-content: center; }
             .btn-primary-glow, .btn-glass { width: auto; }
             
-            .impact-grid { grid-template-columns: repeat(3, 1fr); }
+            .impact-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
             .founder-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
             .footer-flex { flex-direction: row; justify-content: space-between; text-align: left; }
+            .section-title-center { font-size: 2.6rem; }
+            .ubuntu-title { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="main-header" data-aos="bright-down">
+    <header class="main-header" data-aos="fade-down">
         <div class="container nav-wrapper">
             <a href="index.html" class="brand-logo">
                 IKHELOA'S <span class="accent-text">FOUNDATION</span>
@@ -140,12 +182,13 @@
             
             <nav class="main-nav">
                 <a href="#about">The Vision</a>
+                <a href="#metrics">The Reality</a>
                 <a href="#impact">Our Impact</a>
-                <a href="#programs">What We Do</a>
-                <a href="survey.html">Survey</a>
+                <a href="survey.html">Take Survey</a>
             </nav>
             
-            <a href="#donate" class="btn btn-premium">Donate</a>
+            <!-- LINKED TO PARTNER PAGE -->
+            <a href="partner.html" class="btn btn-premium">Donate Now</a>
         </div>
     </header>
 
@@ -161,14 +204,45 @@
                 led by Nurse Ikheloa Omuekpen Promise.
             </p>
             <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
-                <a href="#join" class="btn btn-primary-glow">Partner With Us</a>
+                <!-- LINKED TO PARTNER PAGE -->
+                <a href="partner.html" class="btn btn-primary-glow">Partner With Us</a>
                 <a href="survey.html" class="btn btn-glass">Take the Survey</a>
             </div>
         </div>
     </section>
 
+    <!-- NEW CONTENT: FACTUAL STATS IN NIGERIA (ENGAGING OVERHAUL) -->
+    <section class="metrics-section" id="metrics">
+        <div class="container">
+            <h2 class="section-title-center" data-aos="fade-up">The Menstrual Reality</h2>
+            <div class="metrics-grid">
+                
+                <div class="metric-stat-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="metric-percentage">67%</div>
+                    <div class="metric-label">Forced Absenteeism</div>
+                    <div class="metric-desc">Substantial percentages of adolescent girls in suburban communities systematically skip school cycles due to an absolute lack of basic sanitary tools.</div>
+                </div>
+
+                <div class="metric-stat-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="metric-percentage">4-5</div>
+                    <div class="metric-label">Days Missed Monthly</div>
+                    <div class="metric-desc">Every single month, a girl child falls roughly 5 days behind her class. Over a year, this structural setback directly increases school dropout drop-offs.</div>
+                </div>
+
+                <div class="metric-stat-box" data-aos="fade-up" data-aos-delay="300">
+                    <div class="metric-percentage">100%</div>
+                    <div class="metric-label">Preventable Barrier</div>
+                    <div class="metric-desc">Period poverty isn't an intellectual puzzle—it is a resource breakdown. Providing clean infrastructure preserves security, dignity, and career capacity.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT METRICS -->
     <section class="impact" id="impact">
         <div class="container">
+            <h2 class="section-title-center" data-aos="fade-up">Ecosystem Metrics</h2>
             <div class="impact-grid">
                 <div class="impact-card" data-aos="fade-up">
                     <i class="fa-solid fa-graduation-cap" style="font-size: 30px; color: var(--rose);"></i>
@@ -189,6 +263,7 @@
         </div>
     </section>
 
+    <!-- FOUNDER BIOGRAPHY -->
     <section class="founder-section" id="about">
         <div class="container founder-grid">
             <div class="founder-image-box" data-aos="fade-right">
@@ -212,6 +287,19 @@
         </div>
     </section>
 
+    <!-- NEW CONTENT: AFRICAN UBUNTU PHILOSOPHY SECTION -->
+    <section class="ubuntu-section">
+        <div class="container">
+            <div class="ubuntu-symbol"><i class="fa-solid fa-hands-holding"></i></div>
+            <h2 class="ubuntu-title" data-aos="fade-up">"Umuntu Ngumuntu Ngabantu"</h2>
+            <p class="ubuntu-text" data-aos="fade-up" data-aos-delay="200">
+                I am because we are. Our collective prosperity in Africa stands on how firmly we guard those who are most exposed. When you ensure a girl child stays in school with dignity, you don't just fund a box—you build a community.
+            </p>
+            <!-- LINKED TO PARTNER PAGE -->
+            <a href="partner.html" class="btn btn-primary-glow" data-aos="zoom-in" style="width: auto; padding: 14px 40px;">Join the Blueprint</a>
+        </div>
+    </section>
+
     <footer>
         <div class="container footer-flex">
             <div>
@@ -219,8 +307,8 @@
                 <p style="opacity: 0.6; font-size: 0.8rem;">Empowering the African Girl Child.</p>
             </div>
             <div class="footer-links">
-                <a href="#" style="color: white;"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" style="color: white;"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
     </footer>
