@@ -45,7 +45,6 @@
         .story-text .dropcap { font-family: 'Playfair Display', serif; font-size: 3.5rem; float: left; margin-top: -8px; margin-right: 10px; color: var(--navy); font-weight: 700; line-height: 1; }
         .story-text em { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); font-weight: 600; }
         
-        /* Inline editorial images */
         .story-image-wrapper { width: 100%; margin: 30px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
         .story-img { width: 100%; height: auto; object-fit: cover; display: block; }
         .image-caption { font-size: 0.8rem; font-style: italic; color: var(--text-muted); text-align: center; padding: 12px; background: var(--muted-bg); border-top: 1px solid #edf2f7; }
@@ -58,45 +57,79 @@
         .mission-card h4 i { color: var(--rose); }
         .mission-card p { font-size: 0.88rem; line-height: 1.6; color: #475569; }
 
-        /* --- FINANCIAL TRANSPARENCY BOX (THE ACCOUNT DETAILS) --- */
+        /* --- INTERACTIVE IMPACT CALCULATOR MODULE --- */
+        .calculator-box {
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            padding: 30px 20px;
+            border-radius: 24px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+        .calculator-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 10px; }
+        .calculator-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 25px; }
+        .slider-wrapper { margin: 20px 0; }
+        .calc-slider { width: 100%; height: 8px; border-radius: 5px; background: #e2e8f0; outline: none; accent-color: var(--navy); cursor: pointer; }
+        .calc-metrics-display { display: flex; justify-content: space-around; align-items: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #f0f0f0; }
+        .metric-node { flex: 1; }
+        .metric-node div:first-child { font-size: 1.8rem; font-weight: 800; color: var(--navy); }
+        .metric-node div:last-child { font-size: 0.75rem; font-weight: 700; color: var(--rose); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+        /* --- FINANCIAL TRANSPARENCY BOX (COMPACT & COMPELLING) --- */
         .partnership-box {
             background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
             color: var(--white);
-            padding: 40px 25px;
+            padding: 35px 20px;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.3);
+            box-shadow: 0 15px 35px rgba(10, 25, 47, 0.25);
             text-align: center;
-            margin-top: 6px;
+            margin-top: 40px;
         }
-        .partnership-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
-        .partnership-box p { font-size: 0.9rem; opacity: 0.8; line-height: 1.5; margin-bottom: 30px; }
+        .partnership-box h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; }
+        .partnership-box p { font-size: 0.88rem; opacity: 0.85; line-height: 1.5; margin-bottom: 25px; }
         
+        /* Optimized & Compact Copy Card */
         .bank-details-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            padding: 25px;
-            backdrop-filter: blur(10px);
-            max-width: 400px;
-            margin: 0 auto 30px auto;
+            padding: 16px;
+            max-width: 340px;
+            margin: 0 auto 20px auto;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-        .bank-name { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--rose); font-weight: 800; }
-        .account-number { font-size: 2rem; font-weight: 800; letter-spacing: 1px; margin: 10px 0; color: var(--white); font-family: monospace; }
-        .account-name { font-size: 0.9rem; font-weight: 600; opacity: 0.9; text-transform: uppercase; }
+        .bank-details-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--rose);
+            transform: translateY(-2px);
+        }
+        .bank-name { font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--rose); font-weight: 800; }
+        .account-number { font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; margin: 6px 0; color: var(--white); font-family: monospace; }
+        .account-name { font-size: 0.8rem; font-weight: 600; opacity: 0.9; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .copy-hint { font-size: 0.7rem; color: var(--rose); opacity: 0.8; display: block; margin-top: 8px; font-weight: 600; }
+        .copy-toast { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--rose); color: var(--navy); font-weight: 700; font-size: 11px; padding: 4px 12px; border-radius: 50px; opacity: 0; transition: 0.3s ease; pointer-events: none; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .copy-toast.show { opacity: 1; top: -20px; }
 
-        .direct-contact { display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; font-size: 0.9rem; margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-        .direct-contact a { color: var(--rose); text-decoration: none; font-weight: 600; }
+        .direct-contact { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; font-size: 0.85rem; margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+        .direct-contact span { display: flex; align-items: center; gap: 6px; }
 
         /* --- LAPTOP ADJUSTMENTS --- */
         @media (min-width: 768px) {
-            .partner-hero { padding: 16px 0 100px 0; }
+            .partner-hero { padding: 140px 0 100px 0; }
             .partner-hero h1 { font-size: 3.2rem; }
             .partner-hero p { font-size: 1.3rem; }
             .story-section { padding: 100px 0; }
             .story-text { font-size: 1.1rem; line-height: 1.9; }
-            .partnership-box { padding: 60px; }
-            .partnership-box h2 { font-size: 2.4rem; }
-            .direct-contact { flex-direction: row; gap: 30px; }
+            .calculator-box { padding: 40px; }
+            .calculator-box h3 { font-size: 1.6rem; }
+            .metric-node div:first-child { font-size: 2.2rem; }
+            .partnership-box { padding: 50px; }
+            .partnership-box h2 { font-size: 2.2rem; }
+            .direct-contact { flex-direction: row; gap: 40px; }
         }
     </style>
 </head>
@@ -124,7 +157,7 @@
             
             <div class="story-block" data-aos="fade-up">
                 <p class="story-text">
-                    <span class="dropcap">A</span>cross many rural communities in Africa and right here in Nigeria, an silent emergency unfolds every single month. It is an emergency not documented in statistical manuals, yet its impact alters the trajectories of millions. The average girl child in rural schools faces a punishing biological taxation: her menstruation. Left without alternatives, thousands are forced to navigate this milestone with makeshift rags, cardboard pieces, or complete isolation.
+                    <span class="dropcap">A</span>cross many rural communities in Africa and right here in Nigeria, a silent emergency unfolds every single month. It is an emergency not documented in statistical manuals, yet its impact alters the trajectories of millions. The average girl child in rural schools faces a punishing biological taxation: her menstruation. Left without alternatives, thousands are forced to navigate this milestone with makeshift rags, cardboard pieces, or complete isolation.
                 </p>
                 <p class="story-text">
                     This reality strikes deeper than hygiene—it attacks her education. <em>Many girls miss critical school cycles completely during their periods due to a simple, preventable lack of access</em>, falling further behind their peers until dropping out becomes their only definitive exit. 
@@ -141,6 +174,25 @@
                 <p class="story-text">
                     We believe vulnerability should never determine a child’s ultimate destiny. This realization birthed the framework for our next milestone outreach coming up on the <strong>29th of June, 2026</strong> at <strong>Goddy International College</strong>. Led by Registered Nurse Ikheloa Promise Omuekpen, we are not approaching this with mere charity, but with an intentional, dual-layered intervention system designed to construct lasting inner resilience.
                 </p>
+            </div>
+
+            <!-- INTERACTIVE IMPACT CALCULATOR MODULE -->
+            <div class="calculator-box" data-aos="fade-up">
+                <h3>Interactive Impact Blueprint</h3>
+                <p>Slide to dynamically see how your specific deployment tier transforms lives.</p>
+                <div class="slider-wrapper">
+                    <input type="range" id="impactSlider" class="calc-slider" min="5" max="150" value="50" step="5">
+                </div>
+                <div class="calc-metrics-display">
+                    <div class="metric-node">
+                        <div id="girlCount">50</div>
+                        <div>Girls Protected</div>
+                    </div>
+                    <div class="metric-node">
+                        <div id="padCount">400</div>
+                        <div>Pads Deployed</div>
+                    </div>
+                </div>
             </div>
 
             <!-- Picture 2 Embedded Inside Paragraph -->
@@ -169,22 +221,25 @@
                 </p>
             </div>
 
-            <!-- Box for Partnership with Direct Account Details -->
+            <!-- COMPACT & COMPELLING PARTNERSHIP CONTAINER -->
             <div class="partnership-box" data-aos="zoom-in-up">
-                <h2>Direct Partnership Command</h2>
-                <p>Your contribution translates immediately into physical boxes of pads and clinical educational resources. Use our secured direct NGO channel below to fund this deployment.</p>
+                <h2>Direct Partnership </h2>
+                <p>Your contribution translates immediately into physical boxes of pads and clinical educational resources. Click on the numeric sequence card below to instantly copy details.</p>
                 
-                <div class="bank-details-card">
+                <!-- Micro-Card with Click to Copy functionality -->
+                <div class="bank-details-card" id="copyTargetCard" title="Click to copy account number">
+                    <div class="copy-toast" id="toastNotification">Copied!</div>
                     <div class="bank-name">United Bank for Africa (UBA)</div>
-                    <div class="account-number">2269701175</div>
+                    <div class="account-number" id="targetAccountNumber">2269701175</div>
                     <div class="account-name">Ikheloa Promise Omuekpen</div>
+                    <small class="copy-hint"><i class="fa-regular fa-copy"></i> Click to Copy</small>
                 </div>
 
-                <p style="font-size: 0.8rem; font-style: italic; opacity: 0.6; margin-bottom: 0;">Confirmations are audited and tracked for transparency reports.</p>
+                <p style="font-size: 0.78rem; font-style: italic; opacity: 0.6; margin-bottom: 0;">Confirmations are audited and tracked for transparency reports.</p>
                 
                 <div class="direct-contact">
-                    <span><i class="fa-solid fa-phone" style="color: var(--rose);"></i> Hotlines: +234 903 203 0890</span>
-                    <span><i class="fa-solid fa-envelope" style="color: var(--rose);"></i> Desk: ikheloapromise48@gmail.com</span>
+                    <span><i class="fa-solid fa-phone" style="color: var(--rose);"></i> +234 903 203 0890</span>
+                    <span><i class="fa-solid fa-envelope" style="color: var(--rose);"></i> ikheloapromise48@gmail.com</span>
                 </div>
             </div>
 
@@ -192,6 +247,35 @@
     </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // DYNAMIC SLIDER CALCULATOR ENGINE
+        const slider = document.getElementById('impactSlider');
+        const girlCount = document.getElementById('girlCount');
+        const padCount = document.getElementById('padCount');
+
+        slider.addEventListener('input', (e) => {
+            const currentGirls = parseInt(e.target.value);
+            girlCount.innerText = currentGirls;
+            padCount.innerText = currentGirls * 8; // Assumes 8 pads configured per cycle deployment package
+        });
+
+        // ONE-CLICK COPIABLE DATA UTILITY ENGINE
+        const copyCard = document.getElementById('copyTargetCard');
+        const accountNumText = document.getElementById('targetAccountNumber').innerText;
+        const toast = document.getElementById('toastNotification');
+
+        copyCard.addEventListener('click', () => {
+            navigator.clipboard.writeText(accountNumText).then(() => {
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }).catch(err => {
+                console.error('Could not copy string text: ', err);
+            });
+        });
+    </script>
 </body>
 </html>
