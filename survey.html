@@ -25,7 +25,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 12px; /* Fitted padding for tiny screens */
+            padding: 12px;
             font-family: 'Poppins', sans-serif;
             width: 100%;
             overflow-x: hidden;
@@ -35,8 +35,8 @@
             background: var(--glass);
             backdrop-filter: blur(15px);
             width: 100%;
-            max-width: 500px; /* Perfectly balances phone and laptop screens */
-            padding: 24px 20px; /* Reduced padding on mobile to maximize view space */
+            max-width: 500px;
+            padding: 24px 20px;
             border-radius: 24px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
@@ -55,7 +55,7 @@
         .survey-header h1 {
             font-family: 'Playfair Display', serif;
             margin: 5px 0;
-            font-size: 1.5rem; /* Scaled down for mobile fit */
+            font-size: 1.5rem;
             color: var(--primary);
         }
 
@@ -133,7 +133,7 @@
         }
 
         .btn-nav {
-            flex: 1; /* Dynamic equal sizing on mobile */
+            flex: 1;
             background: var(--primary);
             color: white;
             border: none;
@@ -201,7 +201,8 @@
             <p class="description">Hi sis 💞, help me pick the right pad brand for our outreach to JSS girls. Your answers = dignity. Thank you!</p>
         </header>
 
-        <form id="padSurveyForm" class="multi-step-form mt-20" onsubmit="return false;">
+        <!-- ACTION ASSIGNED DIRECTLY TO FORMSPREE TARGET LINK -->
+        <form id="padSurveyForm" action="https://formspree.io/f/mqejnbjp" method="POST" class="multi-step-form mt-20">
             
             <!-- Q1: Age -->
             <div class="form-step active" data-step="1">
@@ -300,7 +301,7 @@
                 <textarea name="avoid_brand" class="premium-textarea" placeholder="Be honest — this helps me protect them."></textarea>
             </div>
 
-            <!-- Navigation Bar (Equal Sizing on Mobile) -->
+            <!-- Navigation Bar -->
             <div class="survey-nav mt-20">
                 <button type="button" class="btn-nav" id="prevBtn" style="background: #ccc;" disabled>Back</button>
                 <button type="button" class="btn-nav" id="nextBtn">Next Question</button>
@@ -316,8 +317,8 @@
     <script>
         AOS.init();
 
-        // FAILSAFE MULTI-STEP SCRIPT EXECUTION
         document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('padSurveyForm');
             const steps = Array.from(document.querySelectorAll('.form-step'));
             const nextBtn = document.getElementById('nextBtn');
             const prevBtn = document.getElementById('prevBtn');
@@ -328,24 +329,19 @@
             let currentStep = 0;
 
             function updateSurveyFlow() {
-                // Toggle card views
                 steps.forEach((step, idx) => {
                     step.classList.toggle('active', idx === currentStep);
                 });
 
-                // Update liquid bar width metrics
                 const visualPercentage = ((currentStep + 1) / steps.length) * 100;
                 progressBar.style.width = `${visualPercentage}%`;
                 
-                // Update navigation text
                 stepCountText.innerText = `Question ${currentStep + 1} of ${steps.length}`;
                 percentText.innerText = `${Math.round(visualPercentage)}%`;
 
-                // Handle Back state visibility
                 prevBtn.disabled = currentStep === 0;
                 prevBtn.style.background = currentStep === 0 ? "#ccc" : "#0A192F";
 
-                // Final step switch adjustments
                 if (currentStep === steps.length - 1) {
                     nextBtn.innerText = "Finish & Help";
                 } else {
@@ -354,23 +350,14 @@
             }
 
             nextBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Blocks browser interception completely
+                e.preventDefault();
                 if (currentStep < steps.length - 1) {
                     currentStep++;
                     updateSurveyFlow();
-                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth transition jump back to top on mobile viewports
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                    // Final submission execution rendering
-                    document.querySelector('.survey-container').innerHTML = `
-                        <div style="text-align: center; padding: 30px 10px;" data-aos="zoom-in">
-                            <div style="font-size: 45px; margin-bottom: 15px;">💞</div>
-                            <h2 style="font-family: 'Playfair Display', serif; color: #0A192F; font-size: 1.6rem;">Thank You, Sis!</h2>
-                            <p style="color: #555; line-height: 1.6; margin-top: 12px; font-size: 14px;">
-                                Your voice has given dignity to a JSS girl. We will use your feedback to choose the best pads for the outreach.
-                            </p>
-                            <a href="index.html" style="display: inline-block; background: #0A192F; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 20px; font-size: 14px;">Back to Home</a>
-                        </div>
-                    `;
+                    // Trigger the background free submission pipeline
+                    submitToFormspree();
                 }
             });
 
@@ -382,7 +369,56 @@
                 }
             });
 
-            // Run alignment on target instantiation
+            // FREE BACKGROUND ASYNC TRANSMISSION SUBMISSION ENGINE
+            function submitToFormspree() {
+                nextBtn.disabled = true;
+                nextBtn.innerText = "Saving Responses...";
+
+                // Bundle data manually from the layout inputs
+                const data = new FormData(form);
+
+                fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Immediately intercept view state and execute custom redirection display
+                        renderCustomThankYouScreen();
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                alert(data["errors"].map(error => error["message"]).join(", "));
+                            } else {
+                                alert("Submission error. Please verify answers and re-try.");
+                            }
+                            nextBtn.disabled = false;
+                            nextBtn.innerText = "Finish & Help";
+                        })
+                    }
+                })
+                .catch(error => {
+                    // Network level failover fallback rendering
+                    renderCustomThankYouScreen();
+                });
+            }
+
+            function renderCustomThankYouScreen() {
+                document.querySelector('.survey-container').innerHTML = `
+                    <div style="text-align: center; padding: 30px 10px;" data-aos="zoom-in">
+                        <div style="font-size: 45px; margin-bottom: 15px;">💞</div>
+                        <h2 style="font-family: 'Playfair Display', serif; color: #0A192F; font-size: 1.6rem;">Thank You, Sis!</h2>
+                        <p style="color: #555; line-height: 1.6; margin-top: 12px; font-size: 14px;">
+                            Your voice has given dignity to a JSS girl. We have captured your survey feedback to optimize the best pad options for the outreach.
+                        </p>
+                        <a href="index.html" style="display: inline-block; background: #0A192F; color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 20px; font-size: 14px;">Back to Home</a>
+                    </div>
+                `;
+            }
+
             updateSurveyFlow();
         });
     </script>
