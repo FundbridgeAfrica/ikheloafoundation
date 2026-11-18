@@ -22,6 +22,8 @@
         :root {
             --navy: #0A192F;
             --rose: #E8A8B1;
+            --gold: #D4AF37;
+            --festive-red: #B91C1C;
             --white: #FFFFFF;
             --light-bg: #F8F9FA;
             --glass: rgba(255, 255, 255, 0.1);
@@ -57,7 +59,6 @@
 
         .accent-text { color: var(--rose); }
 
-        /* Hide desktop nav on mobile */
         .main-nav { display: none; }
 
         .main-nav a {
@@ -102,9 +103,209 @@
         .hero-tagline { font-size: 0.95rem; opacity: 0.9; margin: 15px 0 30px; line-height: 1.6; }
         
         .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
-        .btn-primary-glow { text-align: center; background: var(--rose); color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; box-shadow: 0 5px 15px rgba(232, 168, 177, 0.3); transition: 0.3s; }
-        .btn-glass { text-align: center; border: 1px solid white; color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; transition: 0.3s; }
-        .btn-primary-glow:hover, .btn-glass:hover { transform: translateY(-2px); opacity: 0.9; }
+        .btn-primary-glow { text-align: center; background: var(--rose); color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; box-shadow: 0 5px 15px rgba(232, 168, 177, 0.3); transition: 0.3s; display: inline-block; }
+        .btn-glass { text-align: center; border: 1px solid white; color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; transition: 0.3s; display: inline-block; }
+        .btn-primary-glow:hover, .btn-glass:hover { transform: translateY(-2px); opacity: 0.95; }
+
+        /* --- CHRISTMAS OUTREACH SHOWCASE --- */
+        .christmas-section {
+            padding: 70px 0;
+            background: linear-gradient(180deg, #0A192F 0%, #132744 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .festive-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(232, 168, 177, 0.15);
+            border: 1px solid var(--rose);
+            color: var(--rose);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            animation: gentlePulse 2.5s infinite;
+        }
+
+        @keyframes gentlePulse {
+            0% { box-shadow: 0 0 0 0 rgba(232, 168, 177, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(232, 168, 177, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(232, 168, 177, 0); }
+        }
+
+        .christmas-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .flier-frame {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+            border-radius: 24px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .flier-img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+        }
+
+        .christmas-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin: 0 0 20px 0;
+            color: var(--white);
+        }
+
+        .christmas-story p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 18px;
+        }
+
+        .christmas-highlight {
+            background: rgba(255, 255, 255, 0.06);
+            border-left: 4px solid var(--rose);
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: var(--white);
+        }
+
+        .btn-donate-christmas {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--rose);
+            color: var(--navy);
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 340px;
+            box-shadow: 0 10px 25px rgba(232, 168, 177, 0.35);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-donate-christmas:hover {
+            transform: translateY(-3px);
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        /* --- FOUNDER VIDEO SECTION --- */
+        .video-showcase {
+            margin-top: 60px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .video-showcase h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .video-showcase p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+        }
+
+        .video-responsive-box {
+            position: relative;
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+            border: 2px solid rgba(232, 168, 177, 0.3);
+        }
+
+        .video-responsive-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- TOP PARTNER SPOTLIGHT (AFRIDAM AI) --- */
+        .partner-spotlight {
+            padding: 60px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .partner-card {
+            background: var(--light-bg);
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            padding: 35px 25px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(10, 25, 47, 0.04);
+        }
+
+        .partner-badge {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--rose);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+        }
+
+        .partner-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin: 0 0 12px 0;
+        }
+
+        .partner-card p {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.7;
+            max-width: 680px;
+            margin: 0 auto 25px auto;
+        }
 
         /* --- IMPACT SECTION --- */
         .impact { padding: 60px 0; background: #fff; }
@@ -167,6 +368,11 @@
             .hero-actions { flex-direction: row; justify-content: center; }
             .btn-primary-glow, .btn-glass { width: auto; }
             
+            .christmas-section { padding: 100px 0; }
+            .christmas-grid { grid-template-columns: 1fr 1.15fr; gap: 60px; }
+            .christmas-title { font-size: 3rem; }
+            .btn-donate-christmas { width: auto; }
+
             .impact-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
             .founder-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
@@ -185,13 +391,13 @@
             </a>
             
             <nav class="main-nav">
+                <a href="#christmas">Christmas Outreach</a>
                 <a href="#about">The Vision</a>
                 <a href="#metrics">The Reality</a>
-                <a href="#impact">Our Impact</a>
                 <a href="survey.html">Take Survey</a>
             </nav>
             
-            <a href="partner.html" class="btn btn-premium">Donate Now</a>
+            <a href="https://www.ikheloafoundation.org/partner" class="btn btn-premium">Donate Now</a>
         </div>
     </header>
 
@@ -207,8 +413,82 @@
                 led by Nurse Ikheloa Omuekpen Promise.
             </p>
             <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
-                <a href="partner.html" class="btn btn-primary-glow">Partner With Us</a>
-                <a href="survey.html" class="btn btn-glass">Take the Survey</a>
+                <a href="https://www.ikheloafoundation.org/partner" class="btn btn-primary-glow">Donate & Partner</a>
+                <a href="#christmas" class="btn btn-glass">Christmas With The Kids</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: CHRISTMAS WITH THE KIDS OUTREACH & VIDEO SECTION -->
+    <section class="christmas-section" id="christmas">
+        <div class="container">
+            <div class="christmas-grid">
+                
+                <!-- Event Flier -->
+                <div class="flier-frame" data-aos="zoom-in">
+                    <img src="861498311_122127450393399258_468970669851444067_n.jpg" alt="Christmas With The Kids Outreach Flier" class="flier-img">
+                </div>
+
+                <!-- Heartfelt Message in Plain English -->
+                <div class="christmas-story" data-aos="fade-left">
+                    <div class="festive-pill">
+                        <i class="fa-solid fa-gift"></i> Upcoming Outreach • Christmas With The Kids
+                    </div>
+                    <h2 class="christmas-title">Every Child Deserves to Smile This Christmas</h2>
+                    
+                    <p>
+                        While many homes are already planning big meals, new clothes, and gifts for December, hundreds of children in our communities are quietly wondering if Christmas will even reach their street this year.
+                    </p>
+                    <p>
+                        For a child who goes to bed hungry or lacks basic care, the holidays can feel lonely and painful. No child should have to watch other kids celebrate while they feel forgotten.
+                    </p>
+
+                    <div class="christmas-highlight">
+                        This Christmas, we are showing up with warm food, gifts, basic medical checks, and love. Even a small gift from you can put a real meal in a child's stomach and a bright smile on their face.
+                    </div>
+
+                    <a href="https://www.ikheloafoundation.org/partner" class="btn-donate-christmas">
+                        <i class="fa-solid fa-heart"></i> Donate to Put a Smile on a Child
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Video From the Founder Herself -->
+            <div class="video-showcase" data-aos="fade-up">
+                <h3>Hear Directly From Nurse Ikheloa</h3>
+                <p>Watch this short message from our founder about why this outreach matters and how your kindness changes real lives.</p>
+                
+                <div class="video-responsive-box">
+                    <iframe 
+                        src="https://www.youtube.com/embed/y5NHzd1ejfY" 
+                        title="Outreach Message from Nurse Ikheloa Omuekpen Promise" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <a href="https://www.ikheloafoundation.org/partner" class="btn-donate-christmas">
+                        Support This Outreach Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: TOP PARTNER SPOTLIGHT (AFRIDAM AI) -->
+    <section class="partner-spotlight" id="partners">
+        <div class="container">
+            <div class="partner-card" data-aos="fade-up">
+                <div class="partner-badge">Top Outreach Partner</div>
+                <h3>AfriDam AI</h3>
+                <p>
+                    We are proud to partner with <strong>AfriDam AI</strong>—a health equity platform built to give people with skin of color and underserved communities better, safer access to skin health care. Together, we are making sure no one is left behind when it comes to health and dignity.
+                </p>
+                <a href="https://www.ikheloafoundation.org/partner" class="btn btn-primary-glow" style="width: auto; padding: 14px 35px;">
+                    Join AfriDam AI & Donate Today
+                </a>
             </div>
         </div>
     </section>
@@ -222,19 +502,19 @@
                 <div class="metric-stat-box" data-aos="fade-up" data-aos-delay="100">
                     <div class="metric-percentage">67%</div>
                     <div class="metric-label">Forced Absenteeism</div>
-                    <div class="metric-desc">Substantial percentages of adolescent girls in suburban communities systematically skip school cycles due to an absolute lack of basic sanitary tools.</div>
+                    <div class="metric-desc">Many young girls in local communities miss school every month simply because they cannot afford sanitary pads.</div>
                 </div>
 
                 <div class="metric-stat-box" data-aos="fade-up" data-aos-delay="200">
                     <div class="metric-percentage">4-5</div>
                     <div class="metric-label">Days Missed Monthly</div>
-                    <div class="metric-desc">Every single month, a girl child falls roughly 5 days behind her class. Over a year, this structural setback directly increases school dropout drop-offs.</div>
+                    <div class="metric-desc">Every month, a girl falls about 5 days behind her classmates. Over a school year, this makes many girls drop out completely.</div>
                 </div>
 
                 <div class="metric-stat-box" data-aos="fade-up" data-aos-delay="300">
                     <div class="metric-percentage">100%</div>
                     <div class="metric-label">Preventable Barrier</div>
-                    <div class="metric-desc">Period poverty isn't an intellectual puzzle, it is a resource breakdown. Providing clean infrastructure preserves security, dignity, and career capacity.</div>
+                    <div class="metric-desc">Lack of pads is a problem we can solve. Giving girls clean sanitary supplies keeps them safe, confident, and in school.</div>
                 </div>
 
             </div>
@@ -244,7 +524,7 @@
     <!-- IMPACT METRICS -->
     <section class="impact" id="impact">
         <div class="container">
-            <h2 class="section-title-center" data-aos="fade-up">Impacts</h2>
+            <h2 class="section-title-center" data-aos="fade-up">Our Impact So Far</h2>
             <div class="impact-grid">
                 <div class="impact-card" data-aos="fade-up">
                     <i class="fa-solid fa-graduation-cap" style="font-size: 30px; color: var(--rose);"></i>
@@ -259,7 +539,7 @@
                 <div class="impact-card" data-aos="fade-up" data-aos-delay="400">
                     <i class="fa-solid fa-handshake-angle" style="font-size: 30px; color: var(--rose);"></i>
                     <h2 class="impact-number" data-target="50">4</h2>
-                    <p>School Reached</p>
+                    <p>Schools Reached</p>
                 </div>
             </div>
         </div>
@@ -279,8 +559,8 @@
                 <h4 style="letter-spacing: 2px; color: var(--rose); font-size: 0.8rem;">THE VISIONARY</h4>
                 <h2 class="founder-name">Ikheloa Omuekpen Promise</h2>
                 <p class="founder-bio">
-                    "As a Registered Nurse, I don't just treat illnesses, I treat broken futures. 
-                    My mission is to shield the vulnerable from the harsh realities of neglect."
+                    "As a Registered Nurse, I don't just treat illnesses, I help protect young futures. 
+                    My mission is to stand up for children and young girls who feel forgotten."
                 </p>
                 <div style="border-left: 4px solid var(--rose); padding-left: 15px; margin-top: 20px;">
                     <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.2rem;">"Helping the vulnerable girl child"</p>
@@ -295,9 +575,9 @@
             <div class="ubuntu-symbol"><i class="fa-solid fa-hands-holding"></i></div>
             <h2 class="ubuntu-title" data-aos="fade-up">"Umuntu Ngumuntu Ngabantu"</h2>
             <p class="ubuntu-text" data-aos="fade-up" data-aos-delay="200">
-                I am because we are. Our collective prosperity in Africa stands on how firmly we guard those who are most exposed. When you ensure a girl child stays in school with dignity, you don't just fund a box—you build a community.
+                I am because we are. Our strength as a community depends on how well we care for those who need help the most. When you give to a child, you give them hope for tomorrow.
             </p>
-            <a href="partner.html" class="btn btn-primary-glow" data-aos="zoom-in" style="width: auto; padding: 14px 40px;">Be a part of this movement</a>
+            <a href="https://www.ikheloafoundation.org/partner" class="btn btn-primary-glow" data-aos="zoom-in" style="width: auto; padding: 14px 40px;">Donate & Be Part of This</a>
         </div>
     </section>
 
@@ -305,7 +585,7 @@
         <div class="container footer-flex">
             <div>
                 <h3 style="font-family: 'Playfair Display'; margin-bottom: 5px;">Ikheloa's Foundation</h3>
-                <p style="opacity: 0.6; font-size: 0.8rem;">Empowering the African Girl Child.</p>
+                <p style="opacity: 0.6; font-size: 0.8rem;">Empowering the African Girl Child & Vulnerable Kids.</p>
                 <p style="opacity: 0.4; font-size: 0.75rem; margin-top: 10px;">© 2026 All Rights Reserved. Ikheloa Foundation</p>
             </div>
             <div class="footer-links">
