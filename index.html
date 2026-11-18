@@ -294,19 +294,86 @@
         .metric-label { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
         .metric-desc { font-size: 0.9rem; color: #555; line-height: 1.5; }
 
-        /* --- FOUNDER SECTION --- */
-        .founder-section { padding: 60px 0; background: #fff; }
+        /* --- FOUNDER SECTION (CREATIVE DUAL-IMAGE COLLAGE FOR PADS) --- */
+        .founder-section { padding: 75px 0; background: #FFF9FA; }
         .founder-grid { 
             display: grid; 
             grid-template-columns: 1fr;
-            gap: 40px; 
+            gap: 45px; 
             align-items: center;
         }
-        .founder-image-box { position: relative; width: 100%; max-width: 400px; margin: 0 auto; }
-        .founder-main-img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0px var(--rose); object-fit: cover; }
-        .founder-float-card { position: absolute; bottom: -15px; right: -15px; background: var(--navy); color: white; padding: 15px; border-radius: 12px; }
+        
+        .founder-creative-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+            padding-bottom: 30px;
+        }
 
-        .founder-name { font-family: 'Playfair Display'; font-size: 2.2rem; margin: 10px 0; }
+        .founder-main-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(10, 25, 47, 0.12);
+            border: 4px solid #FFFFFF;
+            background: #FFFFFF;
+        }
+
+        .founder-main-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .founder-main-frame:hover .founder-main-img {
+            transform: scale(1.03);
+        }
+
+        .founder-overlay-card {
+            position: absolute;
+            bottom: 0px;
+            right: -10px;
+            width: 210px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 15px 35px rgba(10, 25, 47, 0.2);
+            background: #FFFFFF;
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .founder-overlay-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .founder-badge-tag {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--wine);
+            color: #FFFFFF;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            z-index: 5;
+        }
+
+        .founder-name { font-family: 'Playfair Display'; font-size: 2.2rem; margin: 10px 0; color: var(--navy); }
         .founder-bio { font-size: 1rem; line-height: 1.7; color: #444; }
 
         /* --- UBUNTU AFRICAN PHILOSOPHY BLOCK --- */
@@ -344,7 +411,7 @@
 
             .impact-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
-            .founder-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+            .founder-grid { grid-template-columns: 1fr 1.1fr; gap: 70px; }
             .footer-flex { flex-direction: row; justify-content: space-between; text-align: left; }
             .section-title-center { font-size: 2.6rem; }
             .ubuntu-title { font-size: 2.8rem; }
@@ -498,27 +565,37 @@
         </div>
     </section>
 
-    <!-- FOUNDER BIOGRAPHY -->
+    <!-- CREATIVE FOUNDER BIOGRAPHY SECTION WITH SANITARY PADS PICTURES -->
     <section class="founder-section" id="about">
         <div class="container founder-grid">
-            <div class="founder-image-box" data-aos="fade-right">
-                <img src="b158b6a3-18b2-4dfc-be38-b46b53da2b33.jpeg" alt="Nurse Ikheloa" class="founder-main-img">
-                <div class="founder-float-card">
-                    <h3 style="margin: 0; color: var(--rose); font-size: 1.2rem;">RN</h3>
+            
+            <!-- Creative Dual-Image Collage -->
+            <div class="founder-creative-wrapper" data-aos="fade-right">
+                <div class="founder-badge-tag"><i class="fa-solid fa-shield-heart"></i> Founder & RN</div>
+                
+                <!-- Main Image: Founder Holding Sanitary Pads -->
+                <div class="founder-main-frame">
+                    <img src="799280034_122116994565399258_7823022064166708758_n.jpg" alt="Nurse Ikheloa Holding Sanitary Pads" class="founder-main-img">
+                </div>
+
+                <!-- Floating Second Image Frame -->
+                <div class="founder-overlay-card">
+                    <img src="799251156_122116994577399258_7980027604174730965_n.jpg" alt="Community Outreach Session" class="founder-overlay-img">
                 </div>
             </div>
             
             <div class="founder-text-box" data-aos="fade-left">
-                <h4 style="letter-spacing: 2px; color: var(--rose); font-size: 0.8rem;">THE VISIONARY</h4>
+                <h4 style="letter-spacing: 2px; color: var(--wine); font-size: 0.8rem; font-weight: 800;">THE VISIONARY LEADER</h4>
                 <h2 class="founder-name">Ikheloa Omuekpen Promise</h2>
                 <p class="founder-bio">
                     "As a Registered Nurse, I don't just treat illnesses, I help protect young futures. 
-                    My mission is to stand up for children and young girls who feel forgotten."
+                    Every packet of sanitary pads we hand over is a shield that keeps a girl child in school, with her confidence and dignity fully intact."
                 </p>
-                <div style="border-left: 4px solid var(--rose); padding-left: 15px; margin-top: 20px;">
-                    <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.2rem;">"Helping the vulnerable girl child"</p>
+                <div style="border-left: 4px solid var(--wine); padding-left: 15px; margin-top: 20px; background: #FFFFFF; padding: 15px 20px; border-radius: 0 12px 12px 0; box-shadow: 0 5px 15px rgba(10, 25, 47, 0.03);">
+                    <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.15rem; color: var(--navy); margin: 0;">"Helping the vulnerable girl child thrive without barriers."</p>
                 </div>
             </div>
+
         </div>
     </section>
 
