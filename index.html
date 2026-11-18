@@ -22,15 +22,15 @@
         :root {
             --navy: #0A192F;
             --rose: #E8A8B1;
-            --gold: #D4AF37;
-            --festive-red: #B91C1C;
+            --rose-dark: #C86D7C;
+            --wine: #6B2138;
+            --blush-bg: #FFF9FA;
             --white: #FFFFFF;
             --light-bg: #F8F9FA;
-            --glass: rgba(255, 255, 255, 0.1);
         }
         
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #fdfdfd; color: var(--navy); overflow-x: hidden; width: 100%; }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #ffffff; color: var(--navy); overflow-x: hidden; width: 100%; }
 
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
@@ -103,59 +103,64 @@
         .hero-tagline { font-size: 0.95rem; opacity: 0.9; margin: 15px 0 30px; line-height: 1.6; }
         
         .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
-        .btn-primary-glow { text-align: center; background: var(--rose); color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; box-shadow: 0 5px 15px rgba(232, 168, 177, 0.3); transition: 0.3s; display: inline-block; }
-        .btn-glass { text-align: center; border: 1px solid white; color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 80%; max-width: 300px; transition: 0.3s; display: inline-block; }
+        .btn-primary-glow { text-align: center; background: var(--rose); color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 85%; max-width: 300px; box-shadow: 0 5px 15px rgba(232, 168, 177, 0.3); transition: 0.3s; display: inline-block; }
+        .btn-glass { text-align: center; border: 1px solid white; color: white; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 85%; max-width: 300px; transition: 0.3s; display: inline-block; }
         .btn-primary-glow:hover, .btn-glass:hover { transform: translateY(-2px); opacity: 0.95; }
 
-        /* --- CHRISTMAS OUTREACH SHOWCASE --- */
+        /* --- SLEEK BRIGHT CHRISTMAS OUTREACH SECTION --- */
         .christmas-section {
-            padding: 70px 0;
-            background: linear-gradient(180deg, #0A192F 0%, #132744 100%);
-            color: var(--white);
+            padding: 65px 0;
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFF7F8 100%);
+            color: var(--navy);
             position: relative;
-            overflow: hidden;
+            border-bottom: 1px solid #f3e8ea;
         }
         
         .festive-pill {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(232, 168, 177, 0.15);
-            border: 1px solid var(--rose);
-            color: var(--rose);
-            padding: 6px 16px;
+            background: #FDECEF;
+            border: 1px solid #F5C6CE;
+            color: var(--wine);
+            padding: 7px 16px;
             border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             margin-bottom: 16px;
-            animation: gentlePulse 2.5s infinite;
+            animation: softGlow 2.5s infinite;
         }
 
-        @keyframes gentlePulse {
-            0% { box-shadow: 0 0 0 0 rgba(232, 168, 177, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(232, 168, 177, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(232, 168, 177, 0); }
+        @keyframes softGlow {
+            0% { box-shadow: 0 0 0 0 rgba(200, 109, 124, 0.25); }
+            70% { box-shadow: 0 0 0 10px rgba(200, 109, 124, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(200, 109, 124, 0); }
         }
 
         .christmas-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 35px;
             align-items: center;
         }
 
         .flier-frame {
             position: relative;
             width: 100%;
-            max-width: 440px;
+            max-width: 420px;
             margin: 0 auto;
             border-radius: 24px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            padding: 12px;
+            background: #FFFFFF;
+            border: 1px solid #F0D9DD;
+            box-shadow: 0 20px 50px rgba(107, 33, 56, 0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .flier-frame:hover {
+            transform: translateY(-4px);
         }
 
         .flier-img {
@@ -167,28 +172,33 @@
 
         .christmas-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             line-height: 1.2;
-            margin: 0 0 20px 0;
-            color: var(--white);
+            margin: 0 0 18px 0;
+            color: var(--navy);
         }
 
         .christmas-story p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 18px;
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: #374151;
+            margin-bottom: 16px;
         }
 
         .christmas-highlight {
-            background: rgba(255, 255, 255, 0.06);
-            border-left: 4px solid var(--rose);
-            padding: 16px 20px;
-            border-radius: 0 12px 12px 0;
-            margin: 25px 0;
-            font-size: 0.98rem;
+            background: #FFFFFF;
+            border-left: 4px solid var(--wine);
+            border-top: 1px solid #F3E5E8;
+            border-right: 1px solid #F3E5E8;
+            border-bottom: 1px solid #F3E5E8;
+            padding: 18px 20px;
+            border-radius: 0 16px 16px 0;
+            margin: 22px 0;
+            font-size: 0.96rem;
             line-height: 1.7;
-            color: var(--white);
+            color: var(--navy);
+            font-weight: 500;
+            box-shadow: 0 8px 20px rgba(10, 25, 47, 0.04);
         }
 
         .btn-donate-christmas {
@@ -196,46 +206,50 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: var(--rose);
-            color: var(--navy);
-            padding: 18px 36px;
+            background: var(--wine);
+            color: #FFFFFF;
+            padding: 17px 32px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 0.95rem;
             width: 100%;
-            max-width: 340px;
-            box-shadow: 0 10px 25px rgba(232, 168, 177, 0.35);
+            white-space: nowrap;
+            box-shadow: 0 12px 25px rgba(107, 33, 56, 0.25);
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .btn-donate-christmas:hover {
             transform: translateY(-3px);
-            background: var(--white);
-            color: var(--navy);
+            background: var(--navy);
+            color: #FFFFFF;
+            box-shadow: 0 15px 30px rgba(10, 25, 47, 0.25);
         }
 
-        /* --- FOUNDER VIDEO SECTION --- */
+        /* --- FOUNDER VIDEO SECTION (CLEAN & SLEEK) --- */
         .video-showcase {
-            margin-top: 60px;
-            padding-top: 50px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 55px;
+            padding: 40px 20px;
+            background: #FFFFFF;
+            border-radius: 28px;
+            border: 1px solid #F0E4E6;
+            box-shadow: 0 15px 40px rgba(10, 25, 47, 0.05);
             text-align: center;
         }
 
         .video-showcase h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.7rem;
-            margin-bottom: 10px;
-            color: var(--white);
+            font-size: 1.6rem;
+            margin: 0 0 10px 0;
+            color: var(--navy);
         }
 
         .video-showcase p {
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 600px;
-            margin: 0 auto 30px auto;
+            color: #4B5563;
+            max-width: 560px;
+            margin: 0 auto 25px auto;
             line-height: 1.6;
         }
 
@@ -244,12 +258,12 @@
             width: 100%;
             max-width: 760px;
             margin: 0 auto;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
-            border: 2px solid rgba(232, 168, 177, 0.3);
+            box-shadow: 0 15px 35px rgba(10, 25, 47, 0.15);
+            background: #000;
         }
 
         .video-responsive-box iframe {
@@ -272,7 +286,7 @@
             background: var(--light-bg);
             border: 1px solid #e5e7eb;
             border-radius: 24px;
-            padding: 35px 25px;
+            padding: 35px 22px;
             text-align: center;
             max-width: 850px;
             margin: 0 auto;
@@ -300,7 +314,7 @@
         }
 
         .partner-card p {
-            font-size: 1rem;
+            font-size: 0.98rem;
             color: #4b5563;
             line-height: 1.7;
             max-width: 680px;
@@ -368,10 +382,11 @@
             .hero-actions { flex-direction: row; justify-content: center; }
             .btn-primary-glow, .btn-glass { width: auto; }
             
-            .christmas-section { padding: 100px 0; }
-            .christmas-grid { grid-template-columns: 1fr 1.15fr; gap: 60px; }
-            .christmas-title { font-size: 3rem; }
-            .btn-donate-christmas { width: auto; }
+            .christmas-section { padding: 95px 0; }
+            .christmas-grid { grid-template-columns: 0.95fr 1.15fr; gap: 60px; }
+            .christmas-title { font-size: 2.8rem; }
+            .btn-donate-christmas { width: auto; padding: 18px 38px; }
+            .video-showcase { padding: 55px 40px; }
 
             .impact-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -419,7 +434,7 @@
         </div>
     </section>
 
-    <!-- NEW: CHRISTMAS WITH THE KIDS OUTREACH & VIDEO SECTION -->
+    <!-- BRIGHT & SLEEK CHRISTMAS WITH THE KIDS OUTREACH SECTION -->
     <section class="christmas-section" id="christmas">
         <div class="container">
             <div class="christmas-grid">
@@ -429,26 +444,26 @@
                     <img src="861498311_122127450393399258_468970669851444067_n.jpg" alt="Christmas With The Kids Outreach Flier" class="flier-img">
                 </div>
 
-                <!-- Heartfelt Message in Plain English -->
-                <div class="christmas-story" data-aos="fade-left">
+                <!-- Heartfelt Message in Simplest English -->
+                <div class="christmas-story" data-aos="fade-up">
                     <div class="festive-pill">
-                        <i class="fa-solid fa-gift"></i> Upcoming Outreach • Christmas With The Kids
+                        <i class="fa-solid fa-gift"></i> Christmas With The Kids Outreach
                     </div>
                     <h2 class="christmas-title">Every Child Deserves to Smile This Christmas</h2>
                     
                     <p>
-                        While many homes are already planning big meals, new clothes, and gifts for December, hundreds of children in our communities are quietly wondering if Christmas will even reach their street this year.
+                        While many homes are already planning big meals, new clothes, and gifts for December, hundreds of children around us are quietly wondering if Christmas will even reach their street this year.
                     </p>
                     <p>
-                        For a child who goes to bed hungry or lacks basic care, the holidays can feel lonely and painful. No child should have to watch other kids celebrate while they feel forgotten.
+                        When a child goes to sleep hungry or lacks basic care, the holidays feel lonely. No child should have to watch other kids celebrate while they feel left out.
                     </p>
 
                     <div class="christmas-highlight">
-                        This Christmas, we are showing up with warm food, gifts, basic medical checks, and love. Even a small gift from you can put a real meal in a child's stomach and a bright smile on their face.
+                        This Christmas, we are showing up with warm food, gifts, basic health checks, and real love. Even a small gift from you puts food in a child's stomach and a bright smile on their face.
                     </div>
 
                     <a href="https://www.ikheloafoundation.org/partner" class="btn-donate-christmas">
-                        <i class="fa-solid fa-heart"></i> Donate to Put a Smile on a Child
+                        <i class="fa-solid fa-heart"></i> Donate to Make a Child Smile
                     </a>
                 </div>
 
@@ -457,18 +472,18 @@
             <!-- Video From the Founder Herself -->
             <div class="video-showcase" data-aos="fade-up">
                 <h3>Hear Directly From Nurse Ikheloa</h3>
-                <p>Watch this short message from our founder about why this outreach matters and how your kindness changes real lives.</p>
+                <p>Watch this short message from our founder about why this outreach matters and how your kindness helps real kids.</p>
                 
                 <div class="video-responsive-box">
                     <iframe 
-                        src="https://www.youtube.com/embed/y5NHzd1ejfY" 
+                        src="https://www.youtube.com/embed/BJxcZjChWEo" 
                         title="Outreach Message from Nurse Ikheloa Omuekpen Promise" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
                     </iframe>
                 </div>
 
-                <div style="margin-top: 30px;">
+                <div style="margin-top: 28px;">
                     <a href="https://www.ikheloafoundation.org/partner" class="btn-donate-christmas">
                         Support This Outreach Now
                     </a>
@@ -477,7 +492,7 @@
         </div>
     </section>
 
-    <!-- NEW: TOP PARTNER SPOTLIGHT (AFRIDAM AI) -->
+    <!-- TOP PARTNER SPOTLIGHT (AFRIDAM AI) -->
     <section class="partner-spotlight" id="partners">
         <div class="container">
             <div class="partner-card" data-aos="fade-up">
