@@ -21,6 +21,7 @@
             --muted-bg: #F8F9FA;
             --text-dark: #1E293B;
             --text-muted: #64748B;
+            --wine: #6B2138;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,15 +40,128 @@
 
         /* --- EDITORIAL STORYTELLING SECTION --- */
         .story-section { padding: 60px 0; background: var(--white); }
-        .story-block { margin-bottom: 50px; }
+        .story-block { margin-bottom: 45px; }
         
         .story-text { font-size: 1rem; line-height: 1.8; color: #334155; margin-bottom: 25px; text-align: justify; }
         .story-text .dropcap { font-family: 'Playfair Display', serif; font-size: 3.5rem; float: left; margin-top: -8px; margin-right: 10px; color: var(--navy); font-weight: 700; line-height: 1; }
         .story-text em { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); font-weight: 600; }
         
-        .story-image-wrapper { width: 100%; margin: 30px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-        .story-img { width: 100%; height: auto; object-fit: cover; display: block; }
+        /* Image Cards Grid & Wrappers */
+        .story-image-wrapper { width: 100%; margin: 35px 0; border-radius: 18px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 2px solid #F0E4E6; background: #fff; }
+        .story-img { width: 100%; height: auto; max-height: 480px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .story-image-wrapper:hover .story-img { transform: scale(1.02); }
+        .image-caption { font-size: 0.85rem; font-style: italic; color: var(--text-muted); text-align: center; padding: 14px 15px; background: #FFF7F8; border-top: 1px solid #F0E4E6; font-weight: 500; }
+
+        /* Multi-Image Grid */
+        .image-grid-duo { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 35px 0; }
+        @media (min-width: 768px) {
+            .image-grid-duo { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* --- THE INITIATIVE PILLARS --- */
+        .mission-callout { background: var(--muted-bg); border-left: 4px solid var(--rose); padding: 30px 20px; border-radius: 0 16px 16px 0; margin: 40px 0; }
+        .mission-callout h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 15px; }
+        .mission-card { background: var(--white); padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .mission-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .mission-card h4 i { color: var(--rose); }
+        .mission-card p { font-size: 0.88rem; line-height: 1.6; color: #475569; }
+
+        /* --- INTERACTIVE IMPACT CALCULATOR MODULE --- */
+        .calculator-box {
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            padding: 30px 20px;
+            border-radius: 24px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+        .calculator-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 10px; }
+        .calculator-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 25px; }
+        .slider-wrapper { margin: 20px 0; }
+        .calc-slider { width: 100%; height: 8px; border-radius: 5px; background: #e2e8f0; outline: none; accent-color: var(--navy); cursor: pointer; }
+        .calc-metrics-display { display: flex; justify-content: space-around; align-items: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #f0f0f0; }
+        .metric-node { flex: 1; }
+        .metric-node div:first-child { font-size: 1.8rem; font-weight: 800; color: var(--navy); }
+        .metric-node div:last-child { font-size: 0.75rem; font-weight: 70Here is your updated `partner.html` page. I have completely removed the old placeholder image files and replaced them with your new authentic photos, organizing them across dedicated, visually stunning narrative sections so the story flows naturally with emotional weight and professional polish.
+
+### File: `partner.html` (Full Updated Code)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Partner With Us | Ikheloa's Foundation</title>
+    
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap](https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap)" rel="stylesheet">
+    
+    <link href="[https://unpkg.com/aos@2.3.1/dist/aos.css](https://unpkg.com/aos@2.3.1/dist/aos.css)" rel="stylesheet">
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --navy: #0A192F;
+            --rose: #E8A8B1;
+            --white: #FFFFFF;
+            --muted-bg: #F8F9FA;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; width: 100%; }
+        .container { width: 100%; max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- PARTNER HERO --- */
+        .partner-hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.85)), url('66c10abc-6bdf-4dea-ab1f-3052def24e04.jpeg') no-repeat center center/cover;
+            padding: 120px 0 60px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        .partner-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; line-height: 1.2; margin-bottom: 15px; }
+        .partner-hero p { font-size: 1rem; color: var(--rose); font-style: italic; opacity: 0.9; }
+
+        /* --- EDITORIAL STORYTELLING SECTION --- */
+        .story-section { padding: 60px 0; background: var(--white); }
+        .story-block { margin-bottom: 45px; }
+        
+        .story-text { font-size: 1rem; line-height: 1.8; color: #334155; margin-bottom: 22px; text-align: justify; }
+        .story-text .dropcap { font-family: 'Playfair Display', serif; font-size: 3.5rem; float: left; margin-top: -8px; margin-right: 10px; color: var(--navy); font-weight: 700; line-height: 1; }
+        .story-text em { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); font-weight: 600; }
+        
+        .story-image-wrapper { width: 100%; margin: 30px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.08); background: #f1f5f9; }
+        .story-img { width: 100%; height: auto; object-fit: cover; display: block; max-height: 480px; }
         .image-caption { font-size: 0.8rem; font-style: italic; color: var(--text-muted); text-align: center; padding: 12px; background: var(--muted-bg); border-top: 1px solid #edf2f7; }
+
+        /* --- PHOTO GALLERY GRID FOR MULTIPLE IMAGES --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 35px 0;
+        }
+        .gallery-item {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            background: #f1f5f9;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
 
         /* --- THE INITIATIVE PILLARS --- */
         .mission-callout { background: var(--muted-bg); border-left: 4px solid var(--rose); padding: 30px 20px; border-radius: 0 16px 16px 0; margin: 40px 0; }
@@ -89,7 +203,6 @@
         .partnership-box h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; }
         .partnership-box p { font-size: 0.88rem; opacity: 0.85; line-height: 1.5; margin-bottom: 25px; }
         
-        /* Optimized & Compact Copy Card */
         .bank-details-card {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -130,6 +243,7 @@
             .partnership-box { padding: 50px; }
             .partnership-box h2 { font-size: 2.2rem; }
             .direct-contact { flex-direction: row; gap: 40px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
         }
     </style>
 </head>
@@ -164,16 +278,26 @@
                 </p>
             </div>
 
-            <!-- Picture 1 Embedded Inside Paragraph -->
+            <!-- Featured Outreach Image 1 -->
             <div class="story-image-wrapper" data-aos="zoom-in">
-                <img src="download (4).jpeg" alt="Girl child in rural setting looking thoughtful" class="story-img">
-                <div class="image-caption">Behind every statistic is a real girl sitting at home, missing her classes because dignity is out of reach.</div>
+                <img src="775132366_122112838791399258_3771138848643062364_n.jpg" alt="Outreach engagement session with students" class="story-img">
+                <div class="image-caption">Creating safe spaces for open dialogue, education, and confidence building during our school visits.</div>
             </div>
 
             <div class="story-block" data-aos="fade-up">
                 <p class="story-text">
-                    We believe vulnerability should never determine a child’s ultimate destiny. This realization birthed the framework for the outreach we held  on the <strong>30th of June, 2026</strong> at <strong>4 strategic rural schools across Okehi Local Government of Kogi State, Nigeria</strong>. Led by Registered Nurse Ikheloa Promise Omuekpen, we are not approaching this with mere charity, but with an intentional, dual-layered intervention system designed to construct lasting inner resilience.
+                    We believe vulnerability should never determine a child’s ultimate destiny. This realization birthed the framework for the outreach we held on the <strong>30th of June, 2026</strong> at <strong>4 strategic rural schools across Okehi Local Government of Kogi State, Nigeria</strong>. Led by Registered Nurse Ikheloa Promise Omuekpen, we are not approaching this with mere charity, but with an intentional, dual-layered intervention system designed to construct lasting inner resilience.
                 </p>
+            </div>
+
+            <!-- Gallery Grid Section 1 -->
+            <div class="gallery-grid" data-aos="fade-up">
+                <div class="gallery-item">
+                    <img src="775526225_122112838923399258_1124911961980486993_n.jpg" alt="Students engaged during foundation session">
+                </div>
+                <div class="gallery-item">
+                    <img src="776067818_122112839013399258_2376344183698905630_n.jpg" alt="Nurse Ikheloa interacting with children">
+                </div>
             </div>
 
             <!-- INTERACTIVE IMPACT CALCULATOR MODULE -->
@@ -195,10 +319,14 @@
                 </div>
             </div>
 
-            <!-- Picture 2 Embedded Inside Paragraph -->
-            <div class="story-image-wrapper" data-aos="zoom-in">
-                <img src="download (5).jpeg" alt="Children waiting for inspiration and support" class="story-img">
-                <div class="image-caption">Our assignment is simple: to arrive before hopelessness does, carrying both supplies and clear direction.</div>
+            <!-- Gallery Grid Section 2 -->
+            <div class="gallery-grid" data-aos="fade-up">
+                <div class="gallery-item">
+                    <img src="775132370_122112838875399258_8995106928063370699_n.jpg" alt="Distribution of hygiene materials">
+                </div>
+                <div class="gallery-item">
+                    <img src="775548679_122112838809399258_7939945948136238116_n.jpg" alt="Empowering students with knowledge and care">
+                </div>
             </div>
 
             <div class="story-block" data-aos="fade-up">
@@ -215,15 +343,37 @@
                         <p>An interactive assembly engaging both male and female JSS 3 students. Nurse Ikheloa facilitates an intentional session focused on identifying natural talent, aligning ambition with real-world skills, and mapping choices to divine destiny. We inject clarity before they step into higher learning structures.</p>
                     </div>
                 </div>
-                
+            </div>
+
+            <!-- Additional Gallery Grid Section 3 -->
+            <div class="gallery-grid" data-aos="fade-up">
+                <div class="gallery-item">
+                    <img src="776985175_122112838941399258_764040207424447358_n.jpg" alt="Group photo with school children">
+                </div>
+                <div class="gallery-item">
+                    <img src="773542353_122112096321399258_1111685203704123047_n.jpg" alt="Outreach smiles and community impact">
+                </div>
+            </div>
+
+            <div class="story-block" data-aos="fade-up">
                 <p class="story-text">
                     Every pad, educational tool, and medical asset deployed during this 90 to 120-minute transformation framework is completely self-funded by our ecosystem and provided at zero cost to the institution. But to step past the gates of one school and shield the next thousand girls, we require co-builders.
                 </p>
             </div>
 
+            <!-- Final Highlight Photo Showcase -->
+            <div class="gallery-grid" data-aos="fade-up">
+                <div class="gallery-item">
+                    <img src="779268343_122113518669399258_9038324519313260070_n.jpg" alt="Special moments with young minds">
+                </div>
+                <div class="gallery-item">
+                    <img src="780917540_122113518765399258_371450226925900526_n.jpg" alt="Spreading hope and practical solutions">
+                </div>
+            </div>
+
             <!-- COMPACT & COMPELLING PARTNERSHIP CONTAINER -->
             <div class="partnership-box" data-aos="zoom-in-up">
-                <h2>Direct Partnership </h2>
+                <h2>Direct Partnership</h2>
                 <p>Your contribution translates immediately into physical boxes of pads and clinical educational resources. Click on the numeric sequence card below to instantly copy details.</p>
                 
                 <!-- Micro-Card with Click to Copy functionality -->
@@ -246,7 +396,7 @@
         </div>
     </main>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="[https://unpkg.com/aos@2.3.1/dist/aos.js](https://unpkg.com/aos@2.3.1/dist/aos.js)"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
